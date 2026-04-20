@@ -6,8 +6,11 @@ const authSection = document.getElementById('auth-section');
 const appSection = document.getElementById('app-section');
 const searchBtn = document.getElementById('search-btn');
 const composerSearchBtn = document.getElementById('composer-search-btn');
+const createComposerPlaylistBtn = document.getElementById('create-composer-playlist-btn');
+const composerActions = document.getElementById('composer-actions');
 const queryInput = document.getElementById('playlist-query');
 const composerQueryInput = document.getElementById('composer-query');
+const composerPlaylistNameInput = document.getElementById('composer-playlist-name');
 const resultsGrid = document.getElementById('results');
 const previewSection = document.getElementById('preview-section');
 const cloneBtn = document.getElementById('clone-btn');
@@ -104,6 +107,58 @@ composerSearchBtn.addEventListener('click', async () => {
     }
 });
 
+createComposerPlaylistBtn.addEventListener('click', async () => {
+    const name = composerPlaylistNameInput.value.trim();
+    if (!name) {
+        alert('Por favor, insira um nome para a playlist');
+        return;
+    }
+
+    appSection.classList.add('hidden');
+    statusSection.classList.remove('hidden');
+    
+    const progressFill = document.getElementById('progress-fill');
+    progressFill.style.width = '30%';
+
+    try {
+        const res = await fetch('/api/create-from-composer', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query: composerQueryInput.value.trim(),
+                token: accessToken,
+                name: name
+            })
+        });
+        
+        const data = await res.json();
+        
+        if (!res.ok) {
+            throw new Error(data.error || 'Falha ao criar playlist');
+        }
+
+        progressFill.style.width = '100%';
+        
+        document.getElementById('status-msg').innerText = 'Playlist criada com sucesso!';
+        
+        setTimeout(() => {
+            statusSection.classList.add('hidden');
+            successSection.classList.remove('hidden');
+            document.getElementById('playlist-link').href = data.playlist.external_urls.spotify;
+        }, 500);
+        
+    } catch (err) {
+        console.error('Error creating playlist:', err);
+        document.getElementById('status-msg').innerText = 'Erro: ' + err.message;
+        document.getElementById('progress-fill').style.backgroundColor = '#e91429';
+        
+        setTimeout(() => {
+            appSection.classList.remove('hidden');
+            statusSection.classList.add('hidden');
+        }, 2000);
+    }
+});
+
 function showResults(items) {
     resultsGrid.innerHTML = items.map(item => `
         <div class="playlist-card" onclick="loadPlaylist('${item.id}')">
@@ -117,8 +172,12 @@ function showResults(items) {
 function showComposerResults(tracks) {
     if (!tracks || !Array.isArray(tracks)) {
         resultsGrid.innerHTML = '<p class="error">Nenhuma música encontrada</p>';
+        composerActions.classList.add('hidden');
         return;
     }
+    
+    composerActions.classList.remove('hidden');
+    composerPlaylistNameInput.value = composerQueryInput.value + ' - Playlist';
     
     resultsGrid.innerHTML = tracks.map(track => `
         <div class="playlist-card">
