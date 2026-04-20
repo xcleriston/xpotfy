@@ -5,7 +5,9 @@ const loginBtn = document.getElementById('login-btn');
 const authSection = document.getElementById('auth-section');
 const appSection = document.getElementById('app-section');
 const searchBtn = document.getElementById('search-btn');
+const composerSearchBtn = document.getElementById('composer-search-btn');
 const queryInput = document.getElementById('playlist-query');
+const composerQueryInput = document.getElementById('composer-query');
 const resultsGrid = document.getElementById('results');
 const previewSection = document.getElementById('preview-section');
 const cloneBtn = document.getElementById('clone-btn');
@@ -84,12 +86,40 @@ searchBtn.addEventListener('click', async () => {
     }
 });
 
+composerSearchBtn.addEventListener('click', async () => {
+    const query = composerQueryInput.value.trim();
+    if (!query) return;
+
+    resultsGrid.innerHTML = '<div class="loader"></div>';
+    previewSection.classList.add('hidden');
+
+    try {
+        const res = await fetch(`/api/composer?q=${encodeURIComponent(query)}&token=${accessToken}`);
+        const data = await res.json();
+        showComposerResults(data.tracks);
+        resultsGrid.innerHTML = '';
+    } catch (err) {
+        console.error('Composer search error:', err);
+        resultsGrid.innerHTML = '<p class="error">Falha ao buscar músicas do compositor. Tente novamente.</p>';
+    }
+});
+
 function showResults(items) {
     resultsGrid.innerHTML = items.map(item => `
         <div class="playlist-card" onclick="loadPlaylist('${item.id}')">
             <img src="${item.images[0]?.url || 'https://via.placeholder.com/150'}" alt="${item.name}">
             <h4>${item.name}</h4>
             <p>${item.tracks.total} músicas</p>
+        </div>
+    `).join('');
+}
+
+function showComposerResults(tracks) {
+    resultsGrid.innerHTML = tracks.map(track => `
+        <div class="playlist-card">
+            <img src="${track.album?.images[0]?.url || 'https://via.placeholder.com/150'}" alt="${track.name}">
+            <h4>${track.name}</h4>
+            <p>${track.artists.map(a => a.name).join(', ')}</p>
         </div>
     `).join('');
 }
