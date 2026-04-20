@@ -8,6 +8,8 @@ const searchBtn = document.getElementById('search-btn');
 const composerSearchBtn = document.getElementById('composer-search-btn');
 const createComposerPlaylistBtn = document.getElementById('create-composer-playlist-btn');
 const composerActions = document.getElementById('composer-actions');
+const useTokenBtn = document.getElementById('use-token-btn');
+const manualTokenInput = document.getElementById('manual-token');
 const queryInput = document.getElementById('playlist-query');
 const composerQueryInput = document.getElementById('composer-query');
 const composerPlaylistNameInput = document.getElementById('composer-playlist-name');
@@ -18,6 +20,17 @@ const statusSection = document.getElementById('status-section');
 const successSection = document.getElementById('success-section');
 
 // --- Auth Handling ---
+
+useTokenBtn.addEventListener('click', () => {
+    const manualToken = manualTokenInput.value.trim();
+    if (manualToken) {
+        accessToken = manualToken;
+        authSection.classList.add('hidden');
+        appSection.classList.remove('hidden');
+    } else {
+        alert('Por favor, insira um token válido');
+    }
+});
 
 loginBtn.addEventListener('click', () => {
     const width = 450, height = 730;
