@@ -108,7 +108,7 @@ function showPreview(playlist) {
     document.getElementById('preview-img').src = playlist.images[0]?.url || '';
     document.getElementById('preview-name').innerText = playlist.name;
     document.getElementById('preview-owner').querySelector('span').innerText = playlist.owner.display_name;
-    document.getElementById('preview-tracks').querySelector('span').innerText = playlist.tracks.total;
+    document.getElementById('preview-tracks').querySelector('span').innerText = playlist.tracks?.total || 0;
     document.getElementById('clone-name').value = `Cópia de ${playlist.name}`;
 }
 
