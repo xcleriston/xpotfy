@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     }
     
     const data = await response.json();
-    return res.status(200).json(data);
+    return res.status(200).json({ tracks: data.tracks?.items || [] });
   } catch (error) {
     console.error('Erro na busca por compositor:', error);
     res.status(500).json({ error: `Erro interno do servidor: ${error.message}` });

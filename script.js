@@ -115,6 +115,11 @@ function showResults(items) {
 }
 
 function showComposerResults(tracks) {
+    if (!tracks || !Array.isArray(tracks)) {
+        resultsGrid.innerHTML = '<p class="error">Nenhuma música encontrada</p>';
+        return;
+    }
+    
     resultsGrid.innerHTML = tracks.map(track => `
         <div class="playlist-card">
             <img src="${track.album?.images[0]?.url || 'https://via.placeholder.com/150'}" alt="${track.name}">
