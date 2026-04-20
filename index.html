@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xpotfy - Spotify Playlist Cloner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    
+    <main class="container">
+        <header class="hero">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.646 14.413c-.19.31-.592.404-.903.214-2.42-1.478-5.466-1.812-9.052-1.002-.353.08-.702-.14-.783-.493-.08-.352.14-.702.493-.783 3.928-.888 7.308-.507 10.03 1.16.312.19.405.592.215.904zm1.238-2.736c-.238.388-.748.512-1.136.273-2.77-1.702-6.993-2.19-10.274-1.202-.44.13-.894-.12-1.024-.56-.13-.44.12-.894.56-1.024 3.754-1.144 8.417-.596 11.6 1.36.388.237.512.748.274 1.137zm.11-2.846c-3.318-1.97-8.778-2.155-11.937-1.198-.51.155-1.05-.138-1.204-.648-.155-.51.138-1.05.648-1.204 3.633-1.103 9.65-.89 13.483 1.39.46.273.61.875.337 1.334-.274.46-.876.61-1.335.337z"/>
+                </svg>
+                <span>Xpotfy</span>
+            </div>
+            <h1>Clone qualquer playlist do Spotify instantaneamente</h1>
+            <p>Transforme suas playlists favoritas em suas próprias coleções com um clique.</p>
+            
+            <div id="auth-section">
+                <button id="login-btn" class="btn btn-primary btn-large">
+                    Conectar com Spotify
+                </button>
+            </div>
+        </header>
+
+        <section id="app-section" class="hidden">
+            <div class="search-box glass">
+                <input type="text" id="playlist-query" placeholder="Cole o link da playlist ou busque por nome...">
+                <button id="search-btn" class="btn btn-primary">Buscar</button>
+            </div>
+
+            <div id="results" class="results-grid"></div>
+
+            <div id="preview-section" class="hidden glass">
+                <div class="playlist-info">
+                    <img id="preview-img" src="" alt="Capa">
+                    <div class="playlist-meta">
+                        <h2 id="preview-name">Nome da Playlist</h2>
+                        <p id="preview-owner">De: <span></span></p>
+                        <p id="preview-tracks"><span>0</span> músicas</p>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <div class="input-group">
+                        <label for="clone-name">Nome da Nova Playlist</label>
+                        <input type="text" id="clone-name" placeholder="Ex: Minha Cópia Favorita">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="deduplicate" checked>
+                        <label for="deduplicate">Remover duplicatas</label>
+                    </div>
+                    <button id="clone-btn" class="btn btn-success btn-large">Começar Clonagem</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="status-section" class="hidden glass">
+            <div class="loader"></div>
+            <h3 id="status-msg">Clonando a playlist...</h3>
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+        </section>
+
+        <section id="success-section" class="hidden glass">
+            <div class="success-icon">✨</div>
+            <h2>Playlist Criada com Sucesso!</h2>
+            <p>Eles disseram que não era possível, mas aqui está.</p>
+            <a id="playlist-link" href="#" target="_blank" class="btn btn-primary">Abrir no Spotify</a>
+            <button id="reset-btn" class="btn btn-ghost">Clonar Outra</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

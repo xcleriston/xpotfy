@@ -1,44 +1,42 @@
-# Spotify Playlist Creator
+# 🎵 Xpotfy - Spotify Playlist Cloner
 
-Script para criar uma cópia de playlist do Spotify.
+Xpotfy é uma aplicação web premium projetada para clonar qualquer playlist do Spotify instantaneamente. Agora com interface moderna, busca de playlists e remoção de duplicatas.
 
-## Deploy no Vercel
+## ✨ Funcionalidades
 
-1. **Instale o Vercel CLI:**
+- **Busca Integrada**: Encontre playlists por nome ou link direto.
+- **Preview de Playlist**: Veja detalhes (capa, faixas, dono) antes de clonar.
+- **Clonagem Inteligente**: Cria uma nova playlist na sua conta e copia todas as músicas.
+- **Deduplicação Pro**: Opção para remover músicas repetidas automaticamente.
+- **Interface Premium**: Design responsivo com estética "Glassmorphism".
+
+## 🚀 Como fazer o Deploy no Vercel
+
+1. **Clone este repositório:**
    ```bash
-   npm install -g vercel
+   git clone https://github.com/xcleriston/xpotfy
+   cd xpotfy
    ```
 
-2. **Faça login no Vercel:**
-   ```bash
-   vercel login
-   ```
+2. **Configure o Spotify Developer Dashboard:**
+   - Vá para [Spotify Dashboard](https://developer.spotify.com/dashboard).
+   - Crie um novo App.
+   - Em **Settings**, adicione a seguinte **Redirect URI**: `https://seu-projeto.vercel.app/api/callback`.
 
-3. **Deploy do projeto:**
-   ```bash
-   vercel
-   ```
-   - Pressione Enter para aceitar as configurações padrão
-   - Anote a URL gerada (ex: `https://seu-projeto.vercel.app`)
+3. **Deploy no Vercel:**
+   - Linke seu repositório no Vercel.
+   - Configure as seguintes **Environment Variables**:
+     - `SPOTIFY_CLIENT_ID`: Seu Client ID do Spotify.
+     - `SPOTIFY_CLIENT_SECRET`: Seu Client Secret do Spotify.
+     - `SPOTIFY_REDIRECT_URI`: `https://seu-projeto.vercel.app/api/callback`.
 
-4. **Atualize o script Python:**
-   - Abra `spotify_playlist_creator.py`
-   - Substitua `https://seu-projeto.vercel.app/api/callback` pela sua URL real do Vercel
+4. **Pronto!** Sua aplicação estará rodando em sua URL do Vercel.
 
-5. **Configure o Spotify Dashboard:**
-   - Vá em https://developer.spotify.com/dashboard
-   - Abra seu app
-   - Clique em "Edit Settings"
-   - Em "Redirect URIs", adicione: `https://sua-url-vercel.app/api/callback`
-   - Salve
+## 🛠️ Tecnologias
 
-6. **Execute o script:**
-   ```bash
-   python spotify_playlist_creator.py
-   ```
+- **Backend**: Vercel Serverless Functions (Node.js)
+- **Frontend**: Vanila HTML, CSS (Aesthetics-first) & JavaScript
+- **API**: Spotify Web API
 
-## Estrutura do Projeto
-
-- `api/callback.js` - API route do Vercel para receber o callback do Spotify
-- `spotify_playlist_creator.py` - Script principal para criar a playlist
-- `requirements.txt` - Dependências Python
+---
+Criado para ser simples, rápido e elegante.
