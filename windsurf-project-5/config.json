@@ -1,0 +1,26 @@
+{
+  "google_api_key": "AQ.Ab8RN6JPgJNSpD3r-SrTI2F6hcX1sfJjS32pZukvEsN6qtqi6A",
+  "spreadsheet": {
+    "default_file": "data/eventos_com_participantes.csv",
+    "auto_backup": true,
+    "backup_folder": "backups"
+  },
+  "calendar": {
+    "credentials_file": "credentials.json",
+    "token_file": "token.pickle",
+    "default_calendar": "primary",
+    "timezone": "America/Sao_Paulo"
+  },
+  "sync_options": {
+    "skip_existing": true,
+    "add_travel_time": true,
+    "travel_time_minutes": 30,
+    "mark_off_days": true,
+    "auto_confirm": false
+  },
+  "notifications": {
+    "enable_email": false,
+    "email_address": "",
+    "enable_desktop": true
+  }
+}

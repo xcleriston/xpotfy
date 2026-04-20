@@ -1,0 +1,38 @@
+{
+  "name": "prediz-tech",
+  "version": "1.0.0",
+  "description": "Plataforma white label premium para mercados de predições",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "build": "echo 'Build completed - ready for deployment'",
+    "test": "echo 'Running tests...' && npm run test-performance && npm run test-accessibility",
+    "test-performance": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
+    "test-accessibility": "pa11y http://localhost:3000",
+    "deploy": "echo 'Deploy to production server'"
+  },
+  "keywords": [
+    "white-label",
+    "prediction-market",
+    "crypto",
+    "blockchain",
+    "betting",
+    "fintech",
+    "b2b"
+  ],
+  "author": "Prediz.tech Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "lighthouse": "^11.0.0",
+    "pa11y": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prediz-tech/prediz-tech.git"
+  },
+  "homepage": "https://prediz.tech",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

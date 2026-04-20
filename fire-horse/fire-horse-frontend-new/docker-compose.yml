@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fire-horse-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=/api
+    networks:
+      - fire-horse-network
+    depends_on:
+      - backend
+
+  backend:
+    image: fire-horse-backend:latest
+    container_name: fire-horse-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app/backend
+      - /app/backend/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/fire_horse
+      - JWT_SECRET=your_jwt_secret_here
+      - JWT_EXPIRES_IN=7d
+    depends_on:
+      - db
+    networks:
+      - fire-horse-network
+
+  db:
+    image: postgres:14-alpine
+    container_name: fire-horse-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=fire_horse
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fire-horse-network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@firehorse.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - fire-horse-network
+    depends_on:
+      - db
+
+networks:
+  fire-horse-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  pgadmin_data:

@@ -1,0 +1,169 @@
+<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define gradients and effects -->
+  <defs>
+    <!-- Electric purple to neon violet gradient -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A020F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B00FF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Neon glow effect -->
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Soft glow -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Variant 1: Icon only (left) -->
+  <g transform="translate(100, 100)">
+    <!-- Background -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#0A0F1A" rx="10"/>
+    
+    <!-- Background glow -->
+    <circle cx="0" cy="0" r="50" fill="url(#mainGradient)" opacity="0.08" filter="url(#softGlow)"/>
+    
+    <!-- Circuit lines -->
+    <g stroke="url(#mainGradient)" stroke-width="0.8" fill="none" opacity="0.5">
+      <path d="M -30,-20 L -20,-20 L -20,-10 L -10,-10"/>
+      <path d="M -30,5 L -20,5 L -20,15 L 5,15"/>
+      <path d="M -10,-10 L -10,5 L -30,5"/>
+      <path d="M 5,15 L 15,15 L 15,-10 L -10,-10"/>
+      <path d="M 15,-10 L 25,-10 L 25,5 L 15,5"/>
+    </g>
+    
+    <!-- Data points -->
+    <g fill="url(#mainGradient)">
+      <circle cx="-30" cy="-20" r="1.5"/>
+      <circle cx="-20" cy="-20" r="1.5"/>
+      <circle cx="-20" cy="-10" r="1.5"/>
+      <circle cx="-10" cy="-10" r="1.5"/>
+      <circle cx="-30" cy="5" r="1.5"/>
+      <circle cx="-20" cy="5" r="1.5"/>
+      <circle cx="-20" cy="15" r="1.5"/>
+      <circle cx="5" cy="15" r="1.5"/>
+      <circle cx="15" cy="15" r="1.5"/>
+      <circle cx="15" cy="-10" r="1.5"/>
+      <circle cx="25" cy="-10" r="1.5"/>
+      <circle cx="25" cy="5" r="1.5"/>
+      <circle cx="15" cy="5" r="1.5"/>
+    </g>
+    
+    <!-- Main P with arrow -->
+    <g stroke="url(#mainGradient)" stroke-width="2.5" fill="none" filter="url(#neonGlow)">
+      <line x1="-15" y1="-25" x2="-15" y2="25"/>
+      <path d="M -15,-25 Q 20,-25 20,0 Q 20,5 -15,5"/>
+      <path d="M 20,0 L 30,-15 L 25,-10 M 20,0 L 15,5"/>
+    </g>
+  </g>
+  
+  <!-- Variant 2: Icon + text (center) -->
+  <g transform="translate(300, 100)">
+    <!-- Background -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#0A0F1A" rx="10"/>
+    
+    <!-- Logo icon (smaller) -->
+    <g transform="scale(0.8)">
+      <!-- Background glow -->
+      <circle cx="0" cy="-10" r="40" fill="url(#mainGradient)" opacity="0.08" filter="url(#softGlow)"/>
+      
+      <!-- Circuit lines -->
+      <g stroke="url(#mainGradient)" stroke-width="0.8" fill="none" opacity="0.5">
+        <path d="M -25,-15 L -15,-15 L -15,-5 L -5,-5"/>
+        <path d="M -25,10 L -15,10 L -15,20 L 5,20"/>
+        <path d="M -5,-5 L -5,10 L -25,10"/>
+        <path d="M 5,20 L 15,20 L 15,-5 L -5,-5"/>
+        <path d="M 15,-5 L 25,-5 L 25,10 L 15,10"/>
+      </g>
+      
+      <!-- Data points -->
+      <g fill="url(#mainGradient)">
+        <circle cx="-25" cy="-15" r="1.2"/>
+        <circle cx="-15" cy="-15" r="1.2"/>
+        <circle cx="-15" cy="-5" r="1.2"/>
+        <circle cx="-5" cy="-5" r="1.2"/>
+        <circle cx="-25" cy="10" r="1.2"/>
+        <circle cx="-15" cy="10" r="1.2"/>
+        <circle cx="-15" cy="20" r="1.2"/>
+        <circle cx="5" cy="20" r="1.2"/>
+        <circle cx="15" cy="20" r="1.2"/>
+        <circle cx="15" cy="-5" r="1.2"/>
+        <circle cx="25" cy="-5" r="1.2"/>
+        <circle cx="25" cy="10" r="1.2"/>
+        <circle cx="15" cy="10" r="1.2"/>
+      </g>
+      
+      <!-- Main P with arrow -->
+      <g stroke="url(#mainGradient)" stroke-width="2" fill="none" filter="url(#neonGlow)">
+        <line x1="-12" y1="-20" x2="-12" y2="20"/>
+        <path d="M -12,-20 Q 18,-20 18,0 Q 18,3 -12,3"/>
+        <path d="M 18,0 L 28,-12 L 23,-7 M 18,0 L 13,5"/>
+      </g>
+    </g>
+    
+    <!-- Brand text -->
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
+          text-anchor="middle" fill="url(#mainGradient)" filter="url(#neonGlow)">
+      prediz.tech
+    </text>
+  </g>
+  
+  <!-- Variant 3: Horizontal layout (right) -->
+  <g transform="translate(480, 100)">
+    <!-- Background -->
+    <rect x="-70" y="-40" width="140" height="80" fill="#0A0F1A" rx="8"/>
+    
+    <!-- Icon (small) -->
+    <g transform="translate(-35, 0) scale(0.6)">
+      <!-- Circuit lines -->
+      <g stroke="url(#mainGradient)" stroke-width="0.8" fill="none" opacity="0.5">
+        <path d="M -20,-10 L -10,-10 L -10,0 L 0,0"/>
+        <path d="M -20,5 L -10,5 L -10,15 L 5,15"/>
+        <path d="M 0,0 L 0,5 L -20,5"/>
+        <path d="M 5,15 L 15,15 L 15,0 L 0,0"/>
+        <path d="M 15,0 L 25,0 L 25,5 L 15,5"/>
+      </g>
+      
+      <!-- Data points -->
+      <g fill="url(#mainGradient)">
+        <circle cx="-20" cy="-10" r="1"/>
+        <circle cx="-10" cy="-10" r="1"/>
+        <circle cx="-10" cy="0" r="1"/>
+        <circle cx="0" cy="0" r="1"/>
+        <circle cx="-20" cy="5" r="1"/>
+        <circle cx="-10" cy="5" r="1"/>
+        <circle cx="-10" cy="15" r="1"/>
+        <circle cx="5" cy="15" r="1"/>
+        <circle cx="15" cy="15" r="1"/>
+        <circle cx="15" cy="0" r="1"/>
+        <circle cx="25" cy="0" r="1"/>
+        <circle cx="25" cy="5" r="1"/>
+        <circle cx="15" cy="5" r="1"/>
+      </g>
+      
+      <!-- Main P with arrow -->
+      <g stroke="url(#mainGradient)" stroke-width="1.5" fill="none" filter="url(#neonGlow)">
+        <line x1="-10" y1="-15" x2="-10" y2="15"/>
+        <path d="M -10,-15 Q 15,-15 15,0 Q 15,2 -10,2"/>
+        <path d="M 15,0 L 25,-10 L 20,-5 M 15,0 L 10,3"/>
+      </g>
+    </g>
+    
+    <!-- Brand text -->
+    <text x="15" y="5" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
+          text-anchor="middle" fill="url(#mainGradient)" filter="url(#neonGlow)">
+      prediz.tech
+    </text>
+  </g>
+</svg>

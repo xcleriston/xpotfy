@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymarket HFT Bot - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            transition: background 0.3s;
+        }
+        
+        .status-dot.active {
+            background: #10b981;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: transform 0.1s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .btn-info {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            color: #000;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .metric-value.positive {
+            color: #10b981;
+        }
+        
+        .metric-value.negative {
+            color: #ef4444;
+        }
+        
+        .log-container {
+            max-height: 300px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .log-entry {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .log-time {
+            color: #999;
+            margin-right: 10px;
+        }
+        
+        .log-success {
+            color: #10b981;
+        }
+        
+        .log-error {
+            color: #ef4444;
+        }
+        
+        .log-info {
+            color: #3b82f6;
+        }
+        
+        .log-warning {
+            color: #f59e0b;
+        }
+        
+        #configPanel {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 500px;
+            height: 100vh;
+            background: white;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            padding: 30px;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        
+        #configPanel.open {
+            right: 0;
+        }
+        
+        .config-group {
+            margin-bottom: 25px;
+        }
+        
+        .config-group h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-bottom: 2px solid #10b981;
+            padding-bottom: 8px;
+        }
+        
+        .config-field {
+            margin-bottom: 15px;
+        }
+        
+        .config-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .config-field input,
+        .config-field select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .config-field input:focus,
+        .config-field select:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .trade-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .trade-controls button {
+            flex: 1;
+        }
+        
+        .trade-controls button.active {
+            background: #10b981 !important;
+        }
+        
+        #liveIndicator {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Polymarket HFT Bot - Dashboard</h1>
+            <div class="status">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Desconectado</span>
+                <span id="liveIndicator">🔴 LIVE</span>
+                <select id="marketSelector" onchange="selectMarket()" style="padding: 10px; border-radius: 6px; border: 1px solid #ddd; font-size: 14px;">
+                    <option value="">Selecione um mercado...</option>
+                </select>
+                <button class="btn btn-primary" onclick="startBot()">▶️ Iniciar Bot</button>
+                <button class="btn btn-danger" onclick="stopBot()">⏹️ Parar Bot</button>
+                <button class="btn btn-info" onclick="toggleConfigPanel()">⚙️ Configurações</button>
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h2>📊 Métricas Gerais</h2>
+                <div class="metric">
+                    <span class="metric-label">Saldo da Carteira</span>
+                    <span class="metric-value" id="walletBalance">$0.00</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total de Trades</span>
+                    <span class="metric-value" id="totalTrades">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Posições Abertas</span>
+                    <span class="metric-value" id="openPositions">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">P&L Total</span>
+                    <span class="metric-value" id="totalPnL">0.00</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Win Rate</span>
+                    <span class="metric-value" id="winRate">0.00%</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Última Oportunidade</h2>
+                <div class="metric">
+                    <span class="metric-label">Market ID</span>
+                    <span class="metric-value" id="marketId">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Preço UP</span>
+                    <span class="metric-value" id="upPrice">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Preço DOWN</span>
+                    <span class="metric-value" id="downPrice">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Soma</span>
+                    <span class="metric-value" id="sum">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Ineficiência</span>
+                    <span class="metric-value" id="inefficiency">-</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💰 Último Trade</h2>
+                <div class="metric">
+                    <span class="metric-label">Trade ID</span>
+                    <span class="metric-value" id="tradeId">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Tipo</span>
+                    <span class="metric-value" id="tradeType">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Outcome</span>
+                    <span class="metric-value" id="tradeOutcome">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Tamanho</span>
+                    <span class="metric-value" id="tradeSize">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Preço</span>
+                    <span class="metric-value" id="tradePrice">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 2fr 1fr;">
+            <div class="card">
+                <h2>📜 Histórico de Trades</h2>
+                <div class="trade-controls">
+                    <button id="btnLiveTrades" class="btn btn-primary active" onclick="showLiveTrades()">🔴 Live (Últimos 10)</button>
+                    <button id="btnAllTrades" class="btn btn-info" onclick="showAllTrades()">📊 Todos (Últimos 50)</button>
+                </div>
+                <table id="tradesTable">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Outcome</th>
+                            <th>Preço</th>
+                            <th>Preço Executado</th>
+                            <th>Tamanho</th>
+                            <th>Slippage</th>
+                            <th>Limite</th>
+                            <th>Hora</th>
+                            <th>Status</th>
+                            <th>Erro</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tradesList">
+                    </tbody>
+                </table>
+                <div id="tradeCount" style="margin-top: 10px; font-size: 12px; color: #666; text-align: center;"></div>
+            </div>
+
+            <div class="card">
+                <h2>📝 Log em Tempo Real</h2>
+                <div class="log-container" id="logContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="configPanel" style="display: none; position: fixed; top: 0; right: 0; width: 500px; height: 100vh; z-index: 1000; overflow-y: auto; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2>⚙️ Configurações de Trading</h2>
+            <button onclick="toggleConfigPanel()" style="padding: 8px 16px; background: #6b7280; color: white; border: none; border-radius: 6px; cursor: pointer;">✕ Fechar</button>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin-bottom: 10px;">⚡ Execução de Ordens</h3>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">Market Order Buy</label>
+                <select id="marketOrderBuy" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                    <option value="true">Ativado</option>
+                    <option value="false">Desativado</option>
+                </select>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">Market Order Sell</label>
+                <select id="marketOrderSell" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                    <option value="true">Ativado</option>
+                    <option value="false">Desativado</option>
+                </select>
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin: 10px 0 10px 0;">💨 Slippage</h3>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Slippage Buy (%)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Tolerância de slippage ao comprar - quanto o preço pode mudar durante execução</span>
+                </label>
+                <input type="number" id="slippageBuy" step="0.1" min="0" max="10" value="1" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Slippage Sell (%)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Tolerância de slippage ao vender - quanto o preço pode mudar durante execução</span>
+                </label>
+                <input type="number" id="slippageSell" step="0.1" min="0" max="10" value="1" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin: 10px 0 10px 0;">💰 Limites de Posição</h3>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Max Per Trade ($)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Valor máximo por trade - Sniper Mode usa $20+ para diluir gas fees</span>
+                </label>
+                <input type="number" id="maxPerTrade" step="10" min="0" value="20" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Total Spend Limit ($)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Limite total de exposição em todos os trades</span>
+                </label>
+                <input type="number" id="totalSpendLimit" step="100" min="0" value="1000" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Max Per Market ($)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Limite máximo de exposição por mercado específico</span>
+                </label>
+                <input type="number" id="maxPerMarket" step="50" min="0" value="200" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Balance SL ($) - Kill Switch
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Stop loss em USDC - para o bot se o saldo cair abaixo deste valor</span>
+                </label>
+                <input type="number" id="balanceSL" step="10" min="0" value="200" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin: 10px 0 10px 0;">🎯 Filtros de Preço</h3>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Min Price
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Preço mínimo para entrar - Sniper Mode usa 0.00 para odds extremas</span>
+                </label>
+                <input type="number" id="minPrice" step="0.01" min="0" max="1" value="0" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Max Price
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Preço máximo para entrar - Sniper Mode usa 0.05 para focar em &lt;5 centavos</span>
+                </label>
+                <input type="number" id="maxPrice" step="0.01" min="0" max="1" value="0.05" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin: 10px 0 10px 0;">📊 Trigger Delta (Entrada por Variação)</h3>
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Trigger Delta ($)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Movimento mínimo absoluto de preço em USDC para entrar - filtra ruído de bots, captura momentum real (ex: $0.001 = 0.1 centavo)</span>
+                </label>
+                <input type="number" id="triggerDelta" step="0.0001" min="0" max="1" value="0.001" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin: 10px 0 10px 0;">💧 Filtro de Liquidez</h3>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Ignore Trades Under ($)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Ignora trades abaixo deste valor - filtro de liquidez</span>
+                </label>
+                <input type="number" id="ignoreTradesUnder" step="1" min="0" value="10" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <h3 style="margin: 10px 0 10px 0;">🧠 Estratégia</h3>
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Min Inefficiency (%)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Ineficiência mínima - soma UP+DOWN deve ser &lt;(1-este%) para ter margem</span>
+                </label>
+                <input type="number" id="minInefficiency" step="0.5" min="0" max="50" value="5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div>
+                <label style="display: block; margin-bottom: 5px; font-size: 14px;">
+                    Max Inefficiency (%)
+                    <span style="display: block; font-size: 11px; color: #666; margin-top: 2px;">💡 Ineficiência máxima - evita entradas com oportunidades muito ruins</span>
+                </label>
+                <input type="number" id="maxInefficiency" step="0.5" min="0" max="50" value="50" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            
+            <div style="grid-column: 1 / -1; display: flex; gap: 10px; margin-top: 15px;">
+                <button onclick="saveConfig()" style="flex: 1; padding: 12px; background: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;">💾 Salvar</button>
+                <button onclick="resetConfig()" style="flex: 1; padding: 12px; background: #6b7280; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">🔄 Resetar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        let botRunning = false;
+        let showLiveMode = true;
+        let allTrades = [];
+        let recentTrades = [];
+
+        // Socket event listeners
+        socket.on('connect', () => {
+            updateStatus(true);
+            addLog('Conectado ao servidor', 'success');
+            loadMarkets();
+        });
+
+        socket.on('disconnect', () => {
+            updateStatus(false);
+            addLog('Desconectado do servidor', 'error');
+        });
+
+        socket.on('metrics', (metrics) => {
+            updateMetrics(metrics);
+        });
+
+        socket.on('trades', (trades) => {
+            updateTrades(trades);
+        });
+
+        socket.on('marketData', (marketData) => {
+            updateMarketData(marketData);
+        });
+
+        socket.on('botStatus', (status) => {
+            botRunning = status.running;
+            updateBotStatus();
+            updateLiveIndicator();
+        });
+
+        socket.on('marketSelected', (market) => {
+            addLog(`Market selected: ${market.name}`, 'info');
+            document.getElementById('marketSelector').value = market.id;
+        });
+
+        socket.on('log', (logData) => {
+            addLog(logData.message, logData.type);
+        });
+
+        // UI update functions
+        function updateStatus(connected) {
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+            
+            if (connected) {
+                statusDot.classList.add('active');
+                statusText.textContent = 'Conectado';
+            } else {
+                statusDot.classList.remove('active');
+                statusText.textContent = 'Desconectado';
+            }
+        }
+
+        function updateMetrics(metrics) {
+            document.getElementById('walletBalance').textContent = '$' + (metrics.walletBalance || 0).toFixed(2);
+            document.getElementById('totalTrades').textContent = metrics.totalTrades;
+            document.getElementById('openPositions').textContent = metrics.openPositions;
+            document.getElementById('totalPnL').textContent = metrics.totalPnL.toFixed(2);
+            document.getElementById('winRate').textContent = metrics.winRate.toFixed(2) + '%';
+        }
+
+        function updateTrades(trades) {
+            allTrades = trades;
+            recentTrades = trades.slice(-10);
+            
+            if (showLiveMode) {
+                renderTrades(recentTrades.reverse());
+            } else {
+                renderTrades(allTrades.slice(-50).reverse());
+            }
+            updateTradeCount();
+            updateLiveIndicator();
+        }
+
+        function renderTrades(trades) {
+            const tbody = document.getElementById('tradesList');
+            tbody.innerHTML = trades.map(trade => {
+                const statusColor = trade.status === 'FILLED' ? '#10b981' : 
+                                  trade.status === 'PENDING' ? '#f59e0b' : '#ef4444';
+                const executedPrice = trade.executedPrice ? trade.executedPrice.toFixed(4) : '-';
+                const slippage = trade.slippage ? (trade.slippage * 100).toFixed(2) + '%' : '-';
+                const limit = trade.limit ? trade.limit.toFixed(2) : '-';
+                const error = trade.error ? trade.error.substring(0, 30) + (trade.error.length > 30 ? '...' : '') : '-';
+                
+                return `
+                    <tr>
+                        <td style="padding: 8px; text-align: center;">
+                            <span style="font-weight: bold; color: ${trade.type === 'BUY' ? '#10b981' : '#ef4444'};">
+                                ${trade.type}
+                            </span>
+                        </td>
+                        <td style="padding: 8px;">${trade.outcome}</td>
+                        <td style="padding: 8px; text-align: right;">${trade.price.toFixed(4)}</td>
+                        <td style="padding: 8px; text-align: right; color: ${trade.executedPrice ? '#10b981' : '#666'};">${executedPrice}</td>
+                        <td style="padding: 8px; text-align: right;">${trade.size.toFixed(2)}</td>
+                        <td style="padding: 8px; text-align: right;">${slippage}</td>
+                        <td style="padding: 8px; text-align: right;">${limit}</td>
+                        <td style="padding: 8px; text-align: center;">${new Date(trade.timestamp).toLocaleTimeString()}</td>
+                        <td style="padding: 8px; text-align: center;">
+                            <span style="background: ${statusColor}; color: white; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">
+                                ${trade.status}
+                            </span>
+                        </td>
+                        <td style="padding: 8px; text-align: center; color: ${trade.error ? '#ef4444' : '#666'}; font-size: 11px;">${error}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function showLiveTrades() {
+            showLiveMode = true;
+            document.getElementById('btnLiveTrades').style.background = '#10b981';
+            document.getElementById('btnLiveTrades').style.fontWeight = 'bold';
+            document.getElementById('btnAllTrades').style.background = '#6b7280';
+            document.getElementById('btnAllTrades').style.fontWeight = 'normal';
+            renderTrades(recentTrades.reverse());
+            updateTradeCount();
+            updateLiveIndicator();
+        }
+
+        function showAllTrades() {
+            showLiveMode = false;
+            document.getElementById('btnLiveTrades').style.background = '#6b7280';
+            document.getElementById('btnLiveTrades').style.fontWeight = 'normal';
+            document.getElementById('btnAllTrades').style.background = '#10b981';
+            document.getElementById('btnAllTrades').style.fontWeight = 'bold';
+            renderTrades(allTrades.reverse());
+            updateTradeCount();
+            updateLiveIndicator();
+        }
+
+        function updateTradeCount() {
+            const countElement = document.getElementById('tradeCount');
+            if (showLiveMode) {
+                countElement.textContent = `Mostrando últimos ${Math.min(10, recentTrades.length)} trades (Total: ${allTrades.length})`;
+            } else {
+                countElement.textContent = `Mostrando ${Math.min(50, allTrades.length)} de ${allTrades.length} trades`;
+            }
+        }
+
+        function updateLiveIndicator() {
+            const indicator = document.getElementById('liveIndicator');
+            if (showLiveMode && botRunning) {
+                indicator.style.display = 'block';
+            } else {
+                indicator.style.display = 'none';
+            }
+        }
+
+        function updateBotStatus() {
+            // Update any bot-specific UI elements
+        }
+
+        function loadMarkets() {
+            fetch('/api/markets')
+                .then(res => res.json())
+                .then(data => {
+                    const selector = document.getElementById('marketSelector');
+                    selector.innerHTML = '<option value="">Selecione um mercado...</option>';
+                    data.all.forEach(market => {
+                        const option = document.createElement('option');
+                        option.value = market.id;
+                        option.textContent = market.name;
+                        selector.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading markets:', error);
+                    addLog('Erro ao carregar mercados', 'error');
+                });
+        }
+
+        function updateMarketData(marketData) {
+            if (!marketData || marketData.length === 0) return;
+            
+            const lastData = marketData[marketData.length - 1];
+            
+            // Update values directly without complex logic
+            document.getElementById('marketId').innerText = lastData.marketId;
+            document.getElementById('upPrice').innerText = lastData.upPrice.toFixed(4);
+            document.getElementById('downPrice').innerText = lastData.downPrice.toFixed(4);
+            document.getElementById('sum').innerText = lastData.sum.toFixed(4);
+            
+            const inefficiency = (1 - lastData.sum) * 100;
+            const ineffElement = document.getElementById('inefficiency');
+            ineffElement.innerText = inefficiency.toFixed(2) + '%';
+            
+            if (inefficiency > 5) {
+                ineffElement.className = 'metric-value positive';
+            } else {
+                ineffElement.className = 'metric-value';
+            }
+        }
+
+        function addLog(message, type = 'info') {
+            const logContainer = document.getElementById('logContainer');
+            const time = new Date().toLocaleTimeString();
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `<span class="log-time">${time}</span><span class="log-${type}">${message}</span>`;
+            
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        function fetchWalletBalance() {
+            fetch('/api/wallet/balance')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.balance !== undefined) {
+                        document.getElementById('walletBalance').textContent = '$' + data.balance.toFixed(2);
+                        addLog(`Saldo da carteira atualizado: $${data.balance.toFixed(2)}`, 'success');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching wallet balance:', error);
+                    addLog('Erro ao buscar saldo da carteira: ' + error.message, 'error');
+                });
+        }
+
+        // Bot control functions
+        function startBot() {
+            fetch('/api/start', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        addLog('Bot iniciado com sucesso', 'success');
+                    }
+                })
+                .catch(error => {
+                    addLog('Erro ao iniciar bot: ' + error.message, 'error');
+                });
+        }
+
+        function stopBot() {
+            fetch('/api/stop', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        addLog('Bot parado com sucesso', 'success');
+                    }
+                })
+                .catch(error => {
+                    addLog('Erro ao parar bot: ' + error.message, 'error');
+                });
+        }
+
+        function selectMarket() {
+            const marketId = document.getElementById('marketSelector').value;
+            if (marketId) {
+                fetch('/api/markets/select', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ marketId })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        addLog(`Market ${marketId} selecionado`, 'success');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error selecting market:', error);
+                    addLog('Erro ao selecionar mercado: ' + error.message, 'error');
+                });
+            }
+        }
+
+        function toggleConfigPanel() {
+            const panel = document.getElementById('configPanel');
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                loadConfig();
+            } else {
+                panel.style.display = 'none';
+            }
+        }
+
+        function loadConfig() {
+            fetch('/api/config/trading')
+                .then(res => res.json())
+                .then(config => {
+                    document.getElementById('marketOrderBuy').value = config.marketOrderBuy;
+                    document.getElementById('marketOrderSell').value = config.marketOrderSell;
+                    document.getElementById('slippageBuy').value = config.slippageBuy;
+                    document.getElementById('slippageSell').value = config.slippageSell;
+                    document.getElementById('maxPerTrade').value = config.maxPerTrade;
+                    document.getElementById('totalSpendLimit').value = config.totalSpendLimit;
+                    document.getElementById('maxPerMarket').value = config.maxPerMarket;
+                    document.getElementById('balanceSL').value = config.balanceStopLoss;
+                    document.getElementById('minPrice').value = config.minPrice;
+                    document.getElementById('maxPrice').value = config.maxPrice;
+                    document.getElementById('triggerDelta').value = config.triggerDelta || 0.001;
+                    document.getElementById('ignoreTradesUnder').value = config.ignoreTradesUnder;
+                    document.getElementById('minInefficiency').value = config.minInefficiency * 100;
+                    document.getElementById('maxInefficiency').value = config.maxInefficiency * 100;
+                });
+        }
+
+        function saveConfig() {
+            const config = {
+                marketOrderBuy: document.getElementById('marketOrderBuy').value === 'true',
+                marketOrderSell: document.getElementById('marketOrderSell').value === 'true',
+                slippageBuy: parseFloat(document.getElementById('slippageBuy').value),
+                slippageSell: parseFloat(document.getElementById('slippageSell').value),
+                maxPerTrade: parseFloat(document.getElementById('maxPerTrade').value),
+                totalSpendLimit: parseFloat(document.getElementById('totalSpendLimit').value),
+                maxPerMarket: parseFloat(document.getElementById('maxPerMarket').value),
+                balanceStopLoss: parseFloat(document.getElementById('balanceSL').value),
+                minPrice: parseFloat(document.getElementById('minPrice').value),
+                maxPrice: parseFloat(document.getElementById('maxPrice').value),
+                triggerDelta: parseFloat(document.getElementById('triggerDelta').value),
+                ignoreTradesUnder: parseFloat(document.getElementById('ignoreTradesUnder').value),
+                minInefficiency: parseFloat(document.getElementById('minInefficiency').value) / 100,
+                maxInefficiency: parseFloat(document.getElementById('maxInefficiency').value) / 100
+            };
+
+            console.log('💾 Saving config:', config);
+
+            fetch('/api/config/trading', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(config)
+            })
+            .then(res => {
+                console.log('📝 Response status:', res.status);
+                return res.json();
+            })
+            .then(data => {
+                console.log('📝 Response data:', data);
+                if (data.success) {
+                    addLog('Configurações salvas com sucesso', 'success');
+                    document.getElementById('configPanel').style.display = 'none';
+                } else {
+                    addLog('Erro ao salvar configurações: ' + JSON.stringify(data.errors), 'error');
+                }
+            })
+            .catch(error => {
+                console.error('❌ Error saving config:', error);
+                addLog('Erro ao salvar configurações: ' + error.message, 'error');
+            });
+        }
+
+        function resetConfig() {
+            fetch('/api/config/trading/reset', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        loadConfig();
+                        addLog('Configurações resetadas para padrão', 'success');
+                    }
+                });
+        }
+
+        // Fetch wallet balance on page load
+        fetchWalletBalance();
+    </script>
+</body>
+</html>

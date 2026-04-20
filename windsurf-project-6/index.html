@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediz.tech - White Label de Mercado de Predições</title>
+    <meta name="description" content="Plataforma white label premium para mercados de predições. Lance sua própria marca com tecnologia de ponta e posicionamento sólido.">
+    <meta name="keywords" content="white label, mercado de predições, plataforma de apostas, tecnologia financeira, blockchain, crypto">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prediz.tech - White Label de Mercado de Predições">
+    <meta property="og:description" content="Plataforma white label premium para mercados de predições">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prediz.tech">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .gradient-border {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 2px;
+            border-radius: 0.5rem;
+        }
+        
+        .typing-effect {
+            border-right: 3px solid #667eea;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        .scroll-indicator {
+            animation: scroll 2s ease-in-out infinite;
+        }
+        
+        @keyframes scroll {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50" x-data="mainApp()">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gradient">Prediz.tech</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solucao" class="text-gray-700 hover:text-purple-600 transition">Solução</a>
+                    <a href="#para-quem" class="text-gray-700 hover:text-purple-600 transition">Para Quem</a>
+                    <a href="#como-funciona" class="text-gray-700 hover:text-purple-600 transition">Como Funciona</a>
+                    <a href="#diferenciais" class="text-gray-700 hover:text-purple-600 transition">Diferenciais</a>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero falar com um especialista da Prediz.tech', '_blank')" class="gradient-bg text-white px-6 py-2 rounded-full hover:opacity-90 transition pulse-animation">
+                        Falar com Especialista
+                    </button>
+                </div>
+                
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition class="md:hidden bg-white border-t">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="#solucao" class="block text-gray-700 hover:text-purple-600">Solução</a>
+                <a href="#para-quem" class="block text-gray-700 hover:text-purple-600">Para Quem</a>
+                <a href="#como-funciona" class="block text-gray-700 hover:text-purple-600">Como Funciona</a>
+                <a href="#diferenciais" class="block text-gray-700 hover:text-purple-600">Diferenciais</a>
+                <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero falar com um especialista da Prediz.tech', '_blank')" class="gradient-bg text-white px-6 py-2 rounded-full w-full">
+                    Falar com Especialista
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg opacity-5"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <div class="inline-block mb-6">
+                <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
+                    🚀 Oportunidade Exclusiva - Vagas Limitadas
+                </span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Domine o Mercado de
+                <span class="text-gradient">Predições</span>
+                <br>com Sua Própria
+                <span class="text-gradient">Marca</span>
+            </h1>
+            
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Plataforma white label premium para grupos visionários que desejam lançar sua própria plataforma de 
+                mercado de predições com tecnologia de ponta e posicionamento sólido.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-12">
+                <button onclick="window.open('https://tororossomarkets.com/b2b/onboarding', '_blank')" class="gradient-bg text-white px-8 py-4 rounded-full text-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Começar Agora
+                </button>
+                <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero solicitar minha demonstração da Prediz.tech', '_blank')" class="bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-50 transition">
+                    <i class="fas fa-play-circle mr-2"></i>
+                    Solicitar Minha Demo
+                </button>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">$2.5B+</div>
+                    <div class="text-gray-600">Volume de Mercado Anual</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">95%</div>
+                    <div class="text-gray-600">Taxa de Satisfação</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">24h</div>
+                    <div class="text-gray-600">Lançamento Rápido</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-purple-200 rounded-full opacity-20 float-animation"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 float-animation" style="animation-delay: 1s;"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 bg-pink-200 rounded-full opacity-20 float-animation" style="animation-delay: 2s;"></div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                A Solução <span class="text-gradient">Definitiva</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                Tudo o que você precisa para operar sua plataforma de predições com sucesso.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1: 100% White Label -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <i class="fas fa-gem text-5xl text-purple-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">100% White Label</h3>
+                    <p class="text-gray-700">
+                        Sua marca, seu domínio, suas cores. Ninguém saberá que somos nós por trás.
+                    </p>
+                </div>
+                
+                <!-- Feature 2: Mercados Personalizados -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <i class="fas fa-chart-line text-5xl text-green-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Mercados Personalizados</h3>
+                    <p class="text-gray-700">
+                        Crie mercados sobre qualquer tema: esportes, política, entretenimento, finanças.
+                    </p>
+                </div>
+                
+                <!-- Feature 3: Gateway Integrado -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <i class="fas fa-wallet text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Gateway Integrado</h3>
+                    <p class="text-gray-700">
+                        PIX, cartão, cripto. Aceite pagamentos de qualquer forma com taxas competitivas.
+                    </p>
+                </div>
+                
+                <!-- Feature 4: Analytics em Tempo Real -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <i class="fas fa-chart-bar text-5xl text-orange-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Analytics em Tempo Real</h3>
+                    <p class="text-gray-700">
+                        Acompanhe volume, usuários, receita e métricas importantes em tempo real.
+                    </p>
+                </div>
+                
+                <!-- Feature 5: Compliance Pronto -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <i class="fas fa-shield-alt text-5xl text-red-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Compliance Pronto</h3>
+                    <p class="text-gray-700">
+                        KYC, AML e políticas de jogo responsável já integradas.
+                    </p>
+                </div>
+                
+                <!-- Feature 6: Suporte Dedicado -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <i class="fas fa-headset text-5xl text-indigo-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Suporte Dedicado</h3>
+                    <p class="text-gray-700">
+                        Equipe técnica disponível para ajudar você a crescer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Target Audience Section -->
+    <section id="para-quem" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Para Quem é a
+                    <span class="text-gradient">Prediz.tech</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Identifique-se e descubra como nossa solução foi desenhada para o seu sucesso
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-briefcase text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Investidores Visionários</h3>
+                    <p class="text-gray-600 text-center mb-4">
+                        Grupos com capital e visão estratégica que desejam entrar no mercado de predições 
+                        com uma operação estruturada para crescimento exponencial.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                        <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Sou Investidor Visionário e quero saber mais sobre a Prediz.tech', '_blank')" class="gradient-bg text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition transform hover:scale-105">
+                            <i class="fas fa-briefcase mr-2"></i>
+                            Quero Investir
+                        </button>
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm">
+                            Ticket Médio: $50K+
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-rocket text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Empresas de Tecnologia</h3>
+                    <p class="text-gray-600 text-center mb-4">
+                        Companhias tech que buscam diversificar receitas com uma plataforma de predições 
+                        white label, aproveitando sua base de usuários existente.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                        <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Represento uma Empresa de Tecnologia e quero saber mais sobre a solução white label da Prediz.tech', '_blank')" class="gradient-bg text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition transform hover:scale-105">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Solicitar Proposta
+                        </button>
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm">
+                            Solução White Label
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chart-pie text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Operadores Experientes</h3>
+                    <p class="text-gray-600 text-center mb-4">
+                        Profissionais do mercado que desejam escalar suas operações com tecnologia 
+                        de ponta e suporte especializado para maximizar resultados.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                        <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Sou Operador Experiente e quero escalar minha operação com a Prediz.tech', '_blank')" class="gradient-bg text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition transform hover:scale-105">
+                            <i class="fas fa-chart-pie mr-2"></i>
+                            Escalar Operação
+                        </button>
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm">
+                            Suporte Premium 24/7
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="como-funciona" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Como
+                    <span class="text-gradient">Funciona</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Do contato ao lançamento, um processo simples e eficiente para sua operação
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-white text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Consulta Inicial</h3>
+                    <p class="text-gray-600 mb-4">
+                        Análise detalhada de suas necessidades e definição do escopo do projeto
+                    </p>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero agendar uma consulta inicial com a Prediz.tech', '_blank')" class="gradient-bg text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-calendar mr-1"></i>
+                        Agendar Consulta
+                    </button>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-white text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Customização</h3>
+                    <p class="text-gray-600 mb-4">
+                        Desenvolvimento da sua marca personalizada e configuração da plataforma
+                    </p>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero personalizar minha plataforma com a Prediz.tech', '_blank')" class="gradient-bg text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-palette mr-1"></i>
+                        Personalizar
+                    </button>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-white text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Integração</h3>
+                    <p class="text-gray-600 mb-4">
+                        Configuração de métodos de pagamento, eventos de mercado e testes de funcionamento
+                    </p>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero saber mais sobre a solução da Prediz.tech', '_blank')" class="gradient-bg text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-plug mr-1"></i>
+                        Solicitar Informações
+                    </button>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-white text-2xl font-bold">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Lançamento</h3>
+                    <p class="text-gray-600 mb-4">
+                        Sua plataforma no ar com suporte completo e treinamento da equipe
+                    </p>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero lançar minha plataforma com a Prediz.tech', '_blank')" class="gradient-bg text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-rocket mr-1"></i>
+                        Lançar Agora
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <div class="inline-block bg-purple-100 p-8 rounded-2xl">
+                    <div class="text-3xl font-bold text-gradient mb-2">24-48 horas</div>
+                    <div class="text-gray-600">Tempo médio de lançamento após aprovação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Diferenciais Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                Nossos <span class="text-gradient">Diferenciais</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                Tecnologia de ponta e suporte excepcional para sua operação de sucesso
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Starter</h3>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Perfeito para quem está começando no mercado de predições
+                    </p>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Plataforma White Label</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Até 1.000 usuários</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Eventos Personalizáveis</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Suporte por Email</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Dashboard Básico</span>
+                        </li>
+                    </ul>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Tenho interesse no diferencial Starter da Prediz.tech', '_blank')" class="w-full gradient-bg text-white py-3 rounded-full font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-comments mr-2"></i>
+                        Falar com Consultor
+                    </button>
+                </div>
+                
+                <!-- Pro -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-purple-500 card-hover transform scale-105">
+                    <div class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                        Mais Popular
+                    </div>
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Pro</h3>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Ideal para negócios em crescimento com volume moderado
+                    </p>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Tudo do Starter +</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Até 10.000 usuários</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Múltiplos Mercados</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Suporte Prioritário</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Analytics Avançado</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>API de Integração</span>
+                        </li>
+                    </ul>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Tenho interesse no diferencial Pro da Prediz.tech', '_blank')" class="w-full gradient-bg text-white py-3 rounded-full font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-comments mr-2"></i>
+                        Falar com Consultor
+                    </button>
+                </div>
+                
+                <!-- Enterprise -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-crown text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Enterprise</h3>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Solução completa para grandes operações e alto volume
+                    </p>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Tudo do Pro +</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Usuários Ilimitados</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Mercados Personalizados</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Suporte 24/7 Dedicado</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Gestor de Conta</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>SLA Garantido</span>
+                        </li>
+                    </ul>
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Tenho interesse no diferencial Enterprise da Prediz.tech', '_blank')" class="w-full gradient-bg text-white py-3 rounded-full font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-comments mr-2"></i>
+                        Falar com Consultor
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Todos os diferenciais incluem plataforma white label, configuração inicial e treinamento
+                </p>
+                <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Preciso de ajuda para escolher o diferencial ideal da Prediz.tech', '_blank')" class="text-purple-600 font-semibold hover:text-purple-700 transition">
+                    Fale com um especialista para escolher o ideal
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof Section -->
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                O Mercado de <span class="text-gradient">Predições</span> está
+                <span class="text-gradient">Explodindo</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                Dados reais que provam o potencial deste bilionário mercado global
+            </p>
+            
+            <!-- Market Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-2xl">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">$10B+</div>
+                    <div class="text-gray-700 font-semibold">Volume Global Anual</div>
+                    <div class="text-sm text-gray-600 mt-2">Mercado mundial de predições</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-2xl">
+                    <div class="text-3xl font-bold text-green-600 mb-2">$1.8B</div>
+                    <div class="text-gray-700 font-semibold">Polymarket Volume</div>
+                    <div class="text-sm text-gray-600 mt-2">Volume em 2024</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-2xl">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">$500M+</div>
+                    <div class="text-gray-700 font-semibold">Kalshi Volume</div>
+                    <div class="text-sm text-gray-600 mt-2">Crescimento 300% YoY</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">85M+</div>
+                    <div class="text-gray-700 font-semibold">Usuários Ativos</div>
+                    <div class="text-sm text-gray-600 mt-2">Globalmente</div>
+                </div>
+            </div>
+            
+            <!-- Growth Projections -->
+            <div class="bg-gray-50 p-8 rounded-2xl mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-center">Projeções de Crescimento</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600 mb-2">45%</div>
+                        <div class="text-gray-700 font-semibold">CAGR 2024-2029</div>
+                        <div class="text-sm text-gray-600">Taxa de crescimento anual</div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600 mb-2">$25B</div>
+                        <div class="text-gray-700 font-semibold">Mercado em 2029</div>
+                        <div class="text-sm text-gray-600">Projeção de mercado</div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-orange-600 mb-2">150+</div>
+                        <div class="text-gray-700 font-semibold">Países Ativas</div>
+                        <div class="text-sm text-gray-600">Expansão global</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <h3 class="text-2xl font-bold mb-8">Histórias de Sucesso Reais</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div class="text-left">
+                            <div class="font-bold">Shayne Coplan</div>
+                            <div class="text-gray-600 text-sm">CEO, Polymarket</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "Construímos a maior plataforma de predições do mundo partindo do zero. 
+                        O mercado de predições é o futuro dos mercados financeiros descentralizados."
+                    </p>
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div class="text-left">
+                            <div class="font-bold">Luana Lopes Lara</div>
+                            <div class="text-gray-600 text-sm">COO, Kalshi</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "Revolucionamos o mercado de predições nos EUA com a primeira plataforma 
+                        regulamentada pelo CFTC. O potencial é ilimitado."
+                    </p>
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div class="text-left">
+                            <div class="font-bold">Dr. Craig Wright</div>
+                            <div class="text-gray-600 text-sm">Visionário Blockchain</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "Mercados de predições representam a nova fronteira dos mercados financeiros. 
+                        Quem entrar agora estará na vanguarda da próxima revolução."
+                    </p>
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Market Opportunity -->
+            <div class="mt-16 bg-purple-50 p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4 text-center">Oportunidade de Mercado</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-3 text-purple-600">🚀 Crescimento Exponencial</h4>
+                        <p class="text-gray-700">
+                            Mercado crescendo 45% ao ano com projeção de $25 bilhões até 2029
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-3 text-purple-600">🌍 Expansão Global</h4>
+                        <p class="text-gray-700">
+                            Mais de 150 países já regulamentando mercados de predições
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-6">
+                    <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero aproveitar essa oportunidade de mercado com a Prediz.tech', '_blank')" class="gradient-bg text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Aproveitar Oportunidade Agora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 px-6 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Pronto para
+                <span class="text-white">Dominar</span>
+                o Mercado?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Vagas limitadas para este trimestre. Garanta sua posição no mercado de predições 
+                com a tecnologia mais avançada do mercado.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-8">
+                <button onclick="window.open('https://wa.me/5511953802136?text=Olá! Quero garantir minha vaga na Prediz.tech', '_blank')" class="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-50 transition">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Garantir Minha Vaga
+                    </button>
+                <button onclick="scrollToSection('sobre')" class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-purple-600 transition">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Saber Mais
+                </button>
+            </div>
+            
+            <div class="bg-white/20 backdrop-blur-md p-6 rounded-2xl max-w-md mx-auto">
+                <div class="flex items-center justify-center space-x-4 text-white">
+                    <i class="fas fa-clock text-2xl"></i>
+                    <div class="text-left">
+                        <div class="font-bold">Oferta por Tempo Limitado</div>
+                        <div class="text-sm">Apenas 8 vagas disponíveis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">Prediz.tech</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Plataforma white label premium para mercados de predições.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Solução</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#solucao" class="hover:text-white transition">Recursos</a></li>
+                        <li><a href="#como-funciona" class="hover:text-white transition">Como Funciona</a></li>
+                        <li><a href="#diferenciais" class="hover:text-white transition">Diferenciais</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contato</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>contato@prediz.tech</li>
+                        <li><i class="fas fa-phone mr-2"></i>+55 11 95380-2136</li>
+                        <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/5511953802136" class="hover:text-white transition">WhatsApp</a></li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Prediz.tech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal -->
+    <div x-show="showModal" x-transition class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-6">
+        <div x-show="showModal" x-transition class="bg-white rounded-2xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Falar com Especialista</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleSubmit(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Nome Completo</label>
+                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500" placeholder="Seu nome">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">E-mail</label>
+                    <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500" placeholder="seu@email.com">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Telefone/WhatsApp</label>
+                    <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500" placeholder="(11) 99999-9999">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Mensagem</label>
+                    <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500" rows="3" placeholder="Conte um pouco sobre seu projeto..."></textarea>
+                </div>
+                
+                <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Success Message -->
+    <div x-show="showSuccess" x-transition class="fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span>Mensagem enviada com sucesso!</span>
+        </div>
+    </div>
+    
+    <script>
+        function mainApp() {
+            return {
+                showModal: false,
+                showSuccess: false,
+                mobileMenu: false
+            }
+        }
+        
+        function openModal() {
+            Alpine.store('mainApp').showModal = true;
+        }
+        
+        function closeModal() {
+            Alpine.store('mainApp').showModal = false;
+        }
+        
+        function toggleMobileMenu() {
+            Alpine.store('mainApp').mobileMenu = !Alpine.store('mainApp').mobileMenu;
+        }
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            closeModal();
+            Alpine.store('mainApp').showSuccess = true;
+            setTimeout(() => {
+                Alpine.store('mainApp').showSuccess = false;
+            }, 3000);
+        }
+        
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

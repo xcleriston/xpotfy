@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #faf8ef;
+    color: #776e65;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.score-container, .best-container {
+    font-size: 18px;
+    height: 20px;
+    line-height: 47px;
+    margin-left: 10px;
+}
+
+.score-container {
+    color: #eee4da;
+    background: #adadad;
+}
+
+.best-container {
+    color: #edc22e;
+    background: #bbada0;
+}
+
+.grid-container {
+    position: relative;
+    background: #bbada0;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 6px;
+    width: 500px;
+    height: 500px;
+}
+
+.grid-row {
+    height: 25%;
+}
+
+.grid-cell {
+    width: 25%;
+    height: 100%;
+    float: left;
+    background: rgba(238, 228, 218, 0.35);
+    border-radius: 3px;
+}
+
+.tile {
+    position: absolute;
+    width: 107.2px;
+    height: 107.2px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.tile.tile-2 {
+    background: #eee4da;
+    color: #776e65;
+}
+
+.tile.tile-4 {
+    background: #ede0c8;
+    color: #776e65;
+}
+
+.tile.tile-8 {
+    background: #f2b179;
+    color: #f9f6f2;
+}
+
+.tile.tile-16 {
+    background: #f59563;
+    color: #f9f6f2;
+}
+
+.tile.tile-32 {
+    background: #f67c5f;
+    color: #f9f6f2;
+}
+
+.tile.tile-64 {
+    background: #f65e3b;
+    color: #f9f6f2;
+}
+
+.tile.tile-128 {
+    background: #edcf72;
+    color: #f9f6f2;
+}
+
+.tile.tile-256 {
+    background: #edcc61;
+    color: #f9f6f2;
+}
+
+.tile.tile-512 {
+    background: #edc850;
+    color: #f9f6f2;
+}
+
+.tile.tile-1024 {
+    background: #edc53f;
+    color: #f9f6f2;
+}
+
+.tile.tile-2048 {
+    background: #edc22e;
+    color: #f9f6f2;
+}
+
+.tile .tile-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(238, 228, 218, 0.75);
+    z-index: 100;
+    text-align: center;
+}
+
+.game-message p {
+    font-size: 60px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 222px;
+}
+
+.retry-button {
+    display: inline-block;
+    background: #8f7a66;
+    border-radius: 3px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: #f9f6f2;
+    height: 40px;
+    line-height: 42px;
+    margin-left: 9px;
+    cursor: pointer;
+}

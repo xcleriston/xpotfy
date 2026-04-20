@@ -1,0 +1,25 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Specific file types
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Binary files that should not be modified
+*.{png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot} binary
+
+# Force LF line endings on all text files
+*.{js,jsx,ts,tsx,json,md,html,css,scss,yml,yaml} text eol=lf
+
+# Force Unix line endings for shell scripts
+*.sh text eol=lf
+
+# Don't touch node_modules
+node_modules/ export-ignore
+
+# Don't touch build files
+/dist export-ignore
+/build export-ignore
+
+# Don't touch environment files
+.env* export-ignore

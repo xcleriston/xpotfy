@@ -1,0 +1,189 @@
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import db from './db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Initialize Express app
+const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: ["http://localhost:5173", "http://localhost:3000"],
+    methods: ["GET", "POST"]
+  }
+});
+
+// Serve static files from the root directory
+app.use(express.static('.'));
+
+// Serve static files from the src directory
+app.use('/src', express.static('src'));
+
+// Security middleware
+app.use(helmet());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
+app.use(express.json());
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
+// Create tables if they don't exist
+const initDb = async () => {
+  try {
+    // Import bcrypt here to avoid circular dependency
+    const bcrypt = (await import('bcryptjs')).default;
+    
+    // Create tables
+    await db.exec(`
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        email TEXT UNIQUE,
+        password TEXT NOT NULL,
+        role TEXT NOT NULL DEFAULT 'user',
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    // Adiciona a coluna email se não existir
+    try {
+      await db.run('ALTER TABLE users ADD COLUMN email TEXT UNIQUE');
+      console.log('Coluna email adicionada à tabela users');
+    } catch (e) {
+      if (!e.message.includes('duplicate column name')) {
+        console.error('Erro ao adicionar coluna email:', e);
+      }
+    }
+
+    // Credits table
+    await db.exec(`
+      CREATE TABLE IF NOT EXISTS credits (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        balance REAL NOT NULL DEFAULT 0,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+      )
+    `);
+
+    // Bets table
+    await db.exec(`
+      CREATE TABLE IF NOT EXISTS bets (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        amount REAL NOT NULL,
+        type TEXT NOT NULL,
+        numbers TEXT NOT NULL,
+        result TEXT,
+        payout REAL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+      )
+    `);
+
+    // Admin actions log
+    await db.exec(`
+      CREATE TABLE IF NOT EXISTS admin_actions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        admin_id INTEGER NOT NULL,
+        action TEXT NOT NULL,
+        target_user_id INTEGER,
+        details TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (admin_id) REFERENCES users(id),
+        FOREIGN KEY (target_user_id) REFERENCES users(id)
+      )
+    `);
+
+    // Create default admin user if not exists
+    const admin = await db.get('SELECT * FROM users WHERE username = ?', ['admin']);
+    if (!admin) {
+      const hashedPassword = await bcrypt.hash('Admin123!', 10);
+      
+      // Insert admin user
+      const result = await db.run(
+        'INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
+        ['admin', hashedPassword, 'admin']
+      );
+      
+      // Give admin some initial credits
+      await db.run(
+        'INSERT INTO credits (user_id, balance) VALUES (?, ?)',
+        [result.lastID, 1000]
+      );
+      
+      console.log('Admin user created with username: admin, password: Admin123!');
+    }
+    
+    console.log('Database initialized successfully');
+  } catch (error) {
+    console.error('Error initializing database:', error);
+    throw error;
+  }
+};
+
+// Initialize database and start server
+(async () => {
+  try {
+    await initDb();
+    console.log('Database initialized successfully');
+    
+    // Start server
+    const PORT = process.env.PORT || 3000;
+    httpServer.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+      console.log(`API available at http://localhost:${PORT}/api`);
+    });
+  } catch (error) {
+    console.error('Failed to initialize database:', error);
+    process.exit(1);
+  }
+})();
+
+// API Routes
+import authRoutes from './routes/auth.js';
+import userRoutes from './routes/users.js';
+import betRoutes from './routes/bets.js';
+import adminRoutes from './routes/admin.js';
+
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/bets', betRoutes);
+app.use('/api/admin', adminRoutes);
+
+// Handle all other routes by serving index.html
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, 'index.html'));
+});
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(join(__dirname, 'dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, 'dist', 'index.html'));
+  });
+}
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
+
+// Export io for use in routes
+export { io };

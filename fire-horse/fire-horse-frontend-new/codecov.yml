@@ -1,0 +1,71 @@
+codecov:
+  require_ci_to_pass: true
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  status:
+    project: yes
+    patch: yes
+    changes: no
+
+comment:
+  layout: "reach,diff,flags,files,footer"
+  behavior: default
+  require_changes: no
+  require_base: no
+  require_head: yes
+  branches: null
+
+ignore:
+  - "**/__tests__"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/test/**"
+  - "**/tests/**"
+  - "**/mocks/**"
+  - "**/stories/**"
+  - "**/__mocks__/**"
+  - "**/__fixtures__/**"
+  - "**/coverage/**"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/node_modules/**"
+  - "**/public/**"
+  - "**/vendor/**"
+  - "**/types/**"
+  - "**/*.d.ts"
+  - "**/*.config.js"
+  - "**/*.config.ts"
+  - "**/index.ts"
+  - "**/index.tsx"
+  - "**/main.tsx"
+  - "**/setupTests.ts"
+
+parsers:
+  javascript:
+    enable_partials: yes
+    enable_enhanced_php: no
+  typescript:
+    enable_partial_windows: yes
+    enable_enhanced_php: no
+
+fixes:
+  - "::"
+  - "src/::"
+  - "src/::/"
+  - "::src/"
+  - "::src/::/"
+  - "src/::**/"
+  - "::src/**/"
+  - "::**/src/::"
+  - "::**/src/**/::"
+  - "::**/src/**/"
+  - "::**/src/"
+  - "::**/"
+  - "::/"
+  - "/"
+  - ""

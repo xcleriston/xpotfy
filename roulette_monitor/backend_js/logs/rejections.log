@@ -1,0 +1,831 @@
+2025-08-05 22:41:25 [[31merror[39m]: unhandledRejection: SQLITE_ERROR: no such table: users
+Error: SQLITE_ERROR: no such table: users
+--> in Database#get('SELECT * FROM users WHERE username = ?', [ 'admin' ], [AsyncFunction (anonymous)])
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_go\backend_js\config\database.js:62:8
+    at new Promise (<anonymous>)
+    at createAdminUser (C:\Users\Ivan Xavier\CascadeProjects\roulette_go\backend_js\config\database.js:53:10)
+    at Object.initialize (C:\Users\Ivan Xavier\CascadeProjects\roulette_go\backend_js\config\database.js:44:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "error": {
+    "errno": 1,
+    "code": "SQLITE_ERROR",
+    "__augmented": true
+  },
+  "stack": "Error: SQLITE_ERROR: no such table: users\n--> in Database#get('SELECT * FROM users WHERE username = ?', [ 'admin' ], [AsyncFunction (anonymous)])\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js:62:8\n    at new Promise (<anonymous>)\n    at createAdminUser (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js:53:10)\n    at Object.initialize (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js:44:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "rejection": true,
+  "date": "Tue Aug 05 2025 22:41:25 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 29716,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 58286080,
+      "heapTotal": 20770816,
+      "heapUsed": 10904784,
+      "external": 2316778,
+      "arrayBuffers": 19067
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 106018.578
+  },
+  "trace": [
+    {
+      "column": 8,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js",
+      "function": null,
+      "line": 62,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js",
+      "function": "createAdminUser",
+      "line": 53,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js",
+      "function": "Object.initialize",
+      "line": 44,
+      "method": "initialize",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/process/task_queues",
+      "function": "process.processTicksAndRejections",
+      "line": 105,
+      "method": "processTicksAndRejections",
+      "native": false
+    }
+  ]
+}
+2025-08-11 10:53:31 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at page.evaluate.rouletteId.rouletteId (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:288:34)
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:288:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:414:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:476:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at page.evaluate.rouletteId.rouletteId (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:288:34)\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:288:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:414:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:476:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 10:53:31 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 29340,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 64315392,
+      "heapTotal": 33738752,
+      "heapUsed": 20403776,
+      "external": 2735739,
+      "arrayBuffers": 354355
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 211612.781
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "page.evaluate.rouletteId.rouletteId",
+      "line": 288,
+      "method": "rouletteId",
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 288,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 414,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 476,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 11:12:12 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at page.evaluate.rouletteId.rouletteId (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:288:34)
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:288:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:414:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:476:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at page.evaluate.rouletteId.rouletteId (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:288:34)\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:288:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:414:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:476:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 11:12:12 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 19352,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 63045632,
+      "heapTotal": 32952320,
+      "heapUsed": 18690048,
+      "external": 2735742,
+      "arrayBuffers": 354358
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 212733.921
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "page.evaluate.rouletteId.rouletteId",
+      "line": 288,
+      "method": "rouletteId",
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 288,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 414,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 476,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 13:45:13 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:34
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:416:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:478:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:34\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:416:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:478:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 13:45:13 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 31076,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 64167936,
+      "heapTotal": 32428032,
+      "heapUsed": 16394032,
+      "external": 2513866,
+      "arrayBuffers": 132482
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 221915.25
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": null,
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 416,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 478,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 14:10:27 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:34
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:416:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:478:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:34\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:416:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:478:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 14:10:27 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 32176,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 64659456,
+      "heapTotal": 32428032,
+      "heapUsed": 16443536,
+      "external": 2517888,
+      "arrayBuffers": 136504
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 223429.203
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": null,
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 416,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 478,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 15:57:16 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:34
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:416:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:478:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:34\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:416:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:478:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 15:57:16 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 32364,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 61431808,
+      "heapTotal": 32428032,
+      "heapUsed": 16436928,
+      "external": 2517667,
+      "arrayBuffers": 136283
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 229837.718
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": null,
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 416,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 478,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 16:06:02 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:34
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:416:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:493:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:34\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:416:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:493:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 16:06:02 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 9640,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 61833216,
+      "heapTotal": 32428032,
+      "heapUsed": 16437600,
+      "external": 2513120,
+      "arrayBuffers": 131736
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 230364.031
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": null,
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 416,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 493,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 16:56:58 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:34
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:416:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:493:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:34\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:416:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:493:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 16:56:58 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 29516,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 60395520,
+      "heapTotal": 33214464,
+      "heapUsed": 18658848,
+      "external": 2735746,
+      "arrayBuffers": 354362
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 233419.765
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": null,
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 416,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 493,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-08-11 18:11:36 [[31merror[39m]: unhandledRejection: The "delay" argument must be of type number. Received function 
+TypeError [ERR_INVALID_ARG_TYPE]: The "delay" argument must be of type number. Received function 
+    at setTimeout (node:timers/promises:56:7)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:34
+    at new Promise (<anonymous>)
+    at monitorRoulette (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:289:11)
+    at async initializeCollector (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:416:7)
+    at async start (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\backend_js\scripts\blaze_puppeteer_collector_v5_complete.js:493:5)
+{
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  },
+  "stack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"delay\" argument must be of type number. Received function \n    at setTimeout (node:timers/promises:56:7)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:34\n    at new Promise (<anonymous>)\n    at monitorRoulette (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:289:11)\n    at async initializeCollector (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:416:7)\n    at async start (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js:493:5)",
+  "rejection": true,
+  "date": "Mon Aug 11 2025 18:11:36 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 8552,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js"
+    ],
+    "memoryUsage": {
+      "rss": 64393216,
+      "heapTotal": 32428032,
+      "heapUsed": 16608288,
+      "external": 2525053,
+      "arrayBuffers": 143669
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 237898.046
+  },
+  "trace": [
+    {
+      "column": 7,
+      "file": "node:timers/promises",
+      "function": "setTimeout",
+      "line": 56,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 34,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": null,
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "monitorRoulette",
+      "line": 289,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async initializeCollector",
+      "line": 416,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_monitor\\backend_js\\scripts\\blaze_puppeteer_collector_v5_complete.js",
+      "function": "async start",
+      "line": 493,
+      "method": null,
+      "native": false
+    }
+  ]
+}

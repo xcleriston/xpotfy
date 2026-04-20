@@ -1,0 +1,89 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Deep charcoal dark background -->
+  <rect width="200" height="200" fill="#0A0F1A"/>
+  
+  <!-- Define gradients and effects -->
+  <defs>
+    <!-- Electric purple to neon violet gradient -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A020F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B00FF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Neon glow effect -->
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Soft background glow -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background glow circle -->
+  <circle cx="100" cy="100" r="60" fill="url(#mainGradient)" opacity="0.08" filter="url(#softGlow)"/>
+  
+  <!-- Main logo icon centered -->
+  <g transform="translate(100, 100)">
+    <!-- Circuit board lines - minimalist tech pattern -->
+    <g stroke="url(#mainGradient)" stroke-width="0.8" fill="none" opacity="0.5">
+      <!-- Main circuit paths -->
+      <path d="M -35,-25 L -25,-25 L -25,-15 L -15,-15"/>
+      <path d="M -35,5 L -25,5 L -25,15 L 5,15"/>
+      <path d="M -15,-15 L -15,5 L -35,5"/>
+      <path d="M 5,15 L 15,15 L 15,-15 L -15,-15"/>
+      <path d="M 15,-15 L 25,-15 L 25,5 L 15,5"/>
+    </g>
+    
+    <!-- Data points at circuit intersections -->
+    <g fill="url(#mainGradient)">
+      <circle cx="-35" cy="-25" r="1.5"/>
+      <circle cx="-25" cy="-25" r="1.5"/>
+      <circle cx="-25" cy="-15" r="1.5"/>
+      <circle cx="-15" cy="-15" r="1.5"/>
+      <circle cx="-35" cy="5" r="1.5"/>
+      <circle cx="-25" cy="5" r="1.5"/>
+      <circle cx="-25" cy="15" r="1.5"/>
+      <circle cx="5" cy="15" r="1.5"/>
+      <circle cx="15" cy="15" r="1.5"/>
+      <circle cx="15" cy="-15" r="1.5"/>
+      <circle cx="25" cy="-15" r="1.5"/>
+      <circle cx="25" cy="5" r="1.5"/>
+      <circle cx="15" cy="5" r="1.5"/>
+    </g>
+    
+    <!-- Stylized letter P with upward arrow -->
+    <g stroke="url(#mainGradient)" stroke-width="2.5" fill="none" filter="url(#neonGlow)">
+      <!-- Vertical stem -->
+      <line x1="-20" y1="-30" x2="-20" y2="30"/>
+      
+      <!-- Upper curve of P -->
+      <path d="M -20,-30 Q 15,-30 15,-5 Q 15,5 -20,5"/>
+      
+      <!-- Upward arrow integrated with the curve -->
+      <path d="M 15,-5 L 25,-20 L 20,-15 M 15,-5 L 10,0"/>
+    </g>
+    
+    <!-- Minimalist tech details -->
+    <g stroke="url(#mainGradient)" stroke-width="0.6" fill="none" opacity="0.3">
+      <!-- Small tech squares -->
+      <rect x="-25" y="-25" width="8" height="8" rx="1"/>
+      <rect x="20" y="-10" width="8" height="8" rx="1"/>
+      <rect x="-25" y="10" width="8" height="8" rx="1"/>
+      
+      <!-- Connection lines -->
+      <line x1="-20" y1="-20" x2="-15" y2="-15"/>
+      <line x1="22" y1="-6" x2="20" y2="-5"/>
+      <line x1="-20" y1="14" x2="-15" y2="15"/>
+    </g>
+  </g>
+</svg>

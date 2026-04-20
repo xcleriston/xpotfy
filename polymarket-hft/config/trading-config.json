@@ -1,0 +1,16 @@
+{
+  "marketOrderBuy": true,
+  "marketOrderSell": true,
+  "slippageBuy": 1,
+  "slippageSell": 1,
+  "maxPerTrade": 2,
+  "totalSpendLimit": 3,
+  "maxPerMarket": 6,
+  "balanceStopLoss": 200,
+  "minPrice": 0,
+  "maxPrice": 1,
+  "ignoreTradesUnder": 0,
+  "minInefficiency": 0.02,
+  "maxInefficiency": 0.1,
+  "triggerDelta": 10
+}

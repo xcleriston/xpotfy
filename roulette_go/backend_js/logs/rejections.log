@@ -1,0 +1,87 @@
+2025-08-05 22:41:25 [[31merror[39m]: unhandledRejection: SQLITE_ERROR: no such table: users
+Error: SQLITE_ERROR: no such table: users
+--> in Database#get('SELECT * FROM users WHERE username = ?', [ 'admin' ], [AsyncFunction (anonymous)])
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_go\backend_js\config\database.js:62:8
+    at new Promise (<anonymous>)
+    at createAdminUser (C:\Users\Ivan Xavier\CascadeProjects\roulette_go\backend_js\config\database.js:53:10)
+    at Object.initialize (C:\Users\Ivan Xavier\CascadeProjects\roulette_go\backend_js\config\database.js:44:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "error": {
+    "errno": 1,
+    "code": "SQLITE_ERROR",
+    "__augmented": true
+  },
+  "stack": "Error: SQLITE_ERROR: no such table: users\n--> in Database#get('SELECT * FROM users WHERE username = ?', [ 'admin' ], [AsyncFunction (anonymous)])\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js:62:8\n    at new Promise (<anonymous>)\n    at createAdminUser (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js:53:10)\n    at Object.initialize (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js:44:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "rejection": true,
+  "date": "Tue Aug 05 2025 22:41:25 GMT-0300 (Horário Padrão de Brasília)",
+  "process": {
+    "pid": 29716,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.16.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 58286080,
+      "heapTotal": 20770816,
+      "heapUsed": 10904784,
+      "external": 2316778,
+      "arrayBuffers": 19067
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 106018.578
+  },
+  "trace": [
+    {
+      "column": 8,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js",
+      "function": null,
+      "line": 62,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "new Promise",
+      "line": null,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js",
+      "function": "createAdminUser",
+      "line": 53,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\config\\database.js",
+      "function": "Object.initialize",
+      "line": 44,
+      "method": "initialize",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/process/task_queues",
+      "function": "process.processTicksAndRejections",
+      "line": 105,
+      "method": "processTicksAndRejections",
+      "native": false
+    }
+  ]
+}

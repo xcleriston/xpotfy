@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Validação simples da mensagem de commit
+if ! grep -qE '^(feat|fix|docs|style|refactor|test|chore|ci|build|revert)(\(.+\))?: .+' "$1"; then
+  echo "Erro: Formato de mensagem de commit inválido."
+  echo "Exemplo: feat(auth): adiciona autenticação"
+  echo "Tipos permitidos: feat, fix, docs, style, refactor, test, chore, ci, build, revert"
+  exit 1
+fi

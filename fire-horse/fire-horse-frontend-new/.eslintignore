@@ -1,0 +1,76 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+build
+.next
+out
+
+# Coverage
+coverage
+
+# IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files
+.env*
+!.env.example
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+**/__mocks__/**
+**/__tests__/**
+**/*.test.*
+**/*.spec.*
+
+# TypeScript
+tsconfig.json
+tsconfig.*.json
+
+# Vercel
+.vercel
+
+# Netlify
+.netlify
+
+# Public
+public/*
+!public/robots.txt
+!public/sitemap.xml
+!public/favicon.ico
+!public/*.png
+!public/*.jpg
+!public/*.jpeg
+!public/*.gif
+!public/*.svg
+!public/*.webp
+!public/*.webmanifest
+!public/*.xml
+!public/*.json
+
+# Misc
+.cache
+.temp
+temp
+*.tmp
+*.bak
+*.backup
+*~

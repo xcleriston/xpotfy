@@ -1,0 +1,13 @@
+[2025-08-08T13:35:57.927Z] Connected to SQLite database
+[2025-08-08T13:35:58.612Z] Browser launched
+[2025-08-08T13:35:58.667Z] Navigating to https://blaze.bet.br/games/roleta-brasileira...
+[2025-08-08T13:36:58.670Z] Error in collector:
+{
+  "name": "TimeoutError"
+}
+[2025-08-08T14:06:57.375Z] Connected to SQLite database
+[2025-08-08T14:06:57.784Z] Browser launched
+[2025-08-08T14:06:57.839Z] Creating CDP session for WebSocket monitoring...
+[2025-08-08T14:06:57.841Z] Navigating to https://blaze.bet.br/games/roleta-brasileira...
+[2025-08-08T14:06:57.843Z] Error in collector:
+{}

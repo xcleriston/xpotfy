@@ -1,0 +1,107 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:24:00"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:24:21"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:24:22"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:29:42"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:29:59"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:31:19"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:31:19"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:31:49"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:37:17"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:38:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:38:07"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:40:07"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:40:20"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:40:40"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:40:40"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:40:59"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[31merror\u001b[39m","message":"Error checking for admin user:","timestamp":"2025-08-05 22:41:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:41:41"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-05 22:41:41"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:41:41"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-05 22:41:41"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user created successfully","timestamp":"2025-08-05 22:41:41"}
+{"level":"\u001b[31merror\u001b[39m","message":"SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\node_modules\\body-parser\\lib\\types\\json.js:92:19)\n    at C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\node_modules\\body-parser\\lib\\read.js:128:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at invokeCallback (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\Ivan Xavier\\CascadeProjects\\roulette_go\\backend_js\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:518:28)\n    at endReadableNT (node:internal/streams/readable:1698:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)","timestamp":"2025-08-05 22:44:37"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 22:54:28"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:00:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:30"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:30"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:30"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-05 23:42:31"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 12:36:39"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:39:50"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:39:50"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:39:50"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:39:51"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 12:39:51"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 12:39:51"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 12:39:51"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 12:39:51"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:40:55"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:09"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 12:41:38"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 13:26:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 13:26:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 13:26:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 13:26:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 13:26:47"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"No token provided for WebSocket connection","timestamp":"2025-08-06 13:29:03"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"Unauthorized WebSocket connection attempt","timestamp":"2025-08-06 13:29:03"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 18:48:46"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 18:48:46"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 18:48:46"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 18:48:46"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 18:48:46"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-06 18:53:44"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on port 8001","timestamp":"2025-08-06 18:53:44"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Connected to SQLite database","timestamp":"2025-08-06 18:53:44"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Foreign key constraints enabled","timestamp":"2025-08-06 18:53:44"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Admin user already exists","timestamp":"2025-08-06 18:53:44"}
+{"level":"\u001b[32minfo\u001b[39m","message":"WebSocket server is running","timestamp":"2025-08-07 17:35:21"}

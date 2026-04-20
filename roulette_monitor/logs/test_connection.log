@@ -1,0 +1,17 @@
+[2025-08-08T20:19:13.561Z] Iniciando teste de conexão...
+[2025-08-08T20:19:13.574Z] Iniciando navegador...
+[2025-08-08T20:19:13.920Z] Criando nova página...
+[2025-08-08T20:19:14.000Z] Navegando para o Google...
+[2025-08-08T20:19:14.788Z] Erro no teste de conexão:
+[2025-08-08T20:19:14.789Z] Error: Navigating frame was detached
+    at #onFrameDetached (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\LifecycleWatcher.js:103:47)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\third_party\mitt\mitt.js:62:7
+    at Array.map (<anonymous>)
+    at Object.emit (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\third_party\mitt\mitt.js:61:20)
+    at CdpFrame.emit (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\puppeteer\common\EventEmitter.js:83:23)
+    at #removeFramesRecursively (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\FrameManager.js:455:15)
+    at #onClientDisconnect (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\FrameManager.js:82:42)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\FrameManager.js:66:37
+    at onceHandler (C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\puppeteer\common\EventEmitter.js:94:13)
+    at C:\Users\Ivan Xavier\CascadeProjects\roulette_monitor\node_modules\puppeteer-core\lib\cjs\third_party\mitt\mitt.js:62:7
+[2025-08-08T20:19:14.792Z] Erro ao tentar obter informações de rede: Tab target session is not defined.

@@ -1,0 +1,882 @@
+[
+  {
+    "index": 122,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"header\"]/div[2]/div[1]/div[1]/div[1]/a[1]/svg[1]",
+    "position": {
+      "x": 8,
+      "y": 46,
+      "width": 20,
+      "height": 16
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 131,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"header\"]/div[2]/div[1]/div[1]/div[2]/a[1]/svg[1]",
+    "position": {
+      "x": 8,
+      "y": 66,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 152,
+    "tag": "div",
+    "id": "",
+    "class": "scrollable",
+    "text": "Blaze OriginalsRecently PlayedCrashDoubleMinesFruit SliceCrash Neymar JrNew!Fortune DoubleCrash IIDiceLimbo.cls-1{fill:#8c9099;}.cls-2{fill:#404952;}TowerSlidePlinkoCoin FlipCasinoAll gamesSlotsLive CasinoBlaze ExclusiveFortune gamesNew!Game ShowsTable GamesBonus BuyProvidersPrize SpinnerSportsLive SupportPromotionsRefer A FriendSponsorshipsFAQBlog",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]",
+    "position": {
+      "x": 8,
+      "y": 129,
+      "width": 1350,
+      "height": 2633
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 157,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/div[1]/div[1]/svg[1]",
+    "position": {
+      "x": 8,
+      "y": 149,
+      "width": 14,
+      "height": 14
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 170,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[1]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 201,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 176,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[2]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 225,
+      "width": 21,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 183,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[3]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 249,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 193,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[4]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 273,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 676,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"root\"]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1]",
+    "position": {
+      "x": 635,
+      "y": 281,
+      "width": 97,
+      "height": 35
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 201,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[5]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 297,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 217,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[6]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 321,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 233,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[7]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 345,
+      "width": 479,
+      "height": 512
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 244,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[8]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 861,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 262,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[9]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 885,
+      "width": 20,
+      "height": 18
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 274,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[10]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 907,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 280,
+    "tag": "svg",
+    "id": "Layer_2",
+    "class": "[object SVGAnimatedString]",
+    "text": ".cls-1{fill:#8c9099;}.cls-2{fill:#404952;}",
+    "xpath": "//*[@id=\"Layer_2\"]",
+    "position": {
+      "x": 48,
+      "y": 931,
+      "width": 1310,
+      "height": 1310
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 290,
+    "tag": "svg",
+    "id": "Layer_2",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"Layer_2\"]",
+    "position": {
+      "x": 48,
+      "y": 2263,
+      "width": 32,
+      "height": 32
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 303,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[1]/div[2]/div[1]/div[1]/div[1]/li[13]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2299,
+      "width": 20,
+      "height": 18
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 315,
+    "tag": "svg",
+    "id": "Layer_2",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"Layer_2\"]",
+    "position": {
+      "x": 48,
+      "y": 2321,
+      "width": 24,
+      "height": 28
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 333,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[1]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2371,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 348,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[2]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2395,
+      "width": 20,
+      "height": 19
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 359,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[3]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2418,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 371,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[4]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2442,
+      "width": 17,
+      "height": 22
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 377,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[5]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2468,
+      "width": 13,
+      "height": 21
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 383,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[6]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2493,
+      "width": 20,
+      "height": 17
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 395,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[7]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2514,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 408,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[8]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2538,
+      "width": 20,
+      "height": 18
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 421,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[9]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2560,
+      "width": 20,
+      "height": 19
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 432,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[1]/div[2]/div[2]/div[1]/div[1]/div[1]/li[10]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2583,
+      "width": 20,
+      "height": 20
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 460,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[2]/li[1]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2641,
+      "width": 16,
+      "height": 16
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 472,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[2]/li[2]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2661,
+      "width": 16,
+      "height": 16
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 479,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[2]/li[3]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2681,
+      "width": 17,
+      "height": 17
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 490,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[2]/li[4]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2702,
+      "width": 16,
+      "height": 16
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 498,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[2]/li[5]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2722,
+      "width": 16,
+      "height": 16
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 505,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"leftbar\"]/div[1]/ul[2]/li[6]/a[1]/svg[1]",
+    "position": {
+      "x": 48,
+      "y": 2742,
+      "width": 16,
+      "height": 16
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 514,
+    "tag": "div",
+    "id": "scrollable",
+    "class": "scrollable",
+    "text": "We've updated!Please refresh to view the latest version of this section of Blaze.RefreshPrevious Login08/08/2025 01:08|Won amount0|Lost amount0|Wallet's balance0The provided data shows your activity since the last time you logged in. If your session stays open, the numbers will keep updating. Win and lost balances refresh every 2 minutes.Helpful linksCrashMinesDoubleFairnessVIP ClubAbout usTerms of ServicePrivacy PolicyBonus TermsResponsible GamblingFAQBlaze is owned and operated by Foggo Entertainment LTDA., CNPJ: 56.431.248/0001-61.Blaze operates under SPA/MF Authorization No. 471, dated March 10, 2025, an official license from the Brazilian Government.Gambling can be addictive. Please play responsibly.Blaze only accepts customers over 18 years of age.Support0800-8870184 |24 hour serviceDefense0800-8870185 |Monday to Friday: 9am to 6pm (Brasília time)Supportsuporte@blaze.bet.br | ouvidoria@blaze.bet.br |Partners partners@blaze.com |Legaljuridico@blaze.bet.br|Press press@blaze.com|Data Protectiondpo@blaze.bet.br",
+    "xpath": "//*[@id=\"scrollable\"]",
+    "position": {
+      "x": 8,
+      "y": 2778,
+      "width": 1350,
+      "height": 1286
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 529,
+    "tag": "p",
+    "id": "",
+    "class": "value",
+    "text": "0",
+    "xpath": "//*[@id=\"footer\"]/div[1]/section[1]/div[1]/p[4]",
+    "position": {
+      "x": 8,
+      "y": 3059,
+      "width": 1350,
+      "height": 18
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 532,
+    "tag": "p",
+    "id": "",
+    "class": "value",
+    "text": "0",
+    "xpath": "//*[@id=\"footer\"]/div[1]/section[1]/div[1]/p[6]",
+    "position": {
+      "x": 8,
+      "y": 3161,
+      "width": 1350,
+      "height": 18
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 535,
+    "tag": "p",
+    "id": "",
+    "class": "value",
+    "text": "0",
+    "xpath": "//*[@id=\"footer\"]/div[1]/section[1]/div[1]/p[8]",
+    "position": {
+      "x": 8,
+      "y": 3263,
+      "width": 1350,
+      "height": 18
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fontSize": "16px",
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  },
+  {
+    "index": 580,
+    "tag": "svg",
+    "id": "",
+    "class": "[object SVGAnimatedString]",
+    "text": "",
+    "xpath": "//*[@id=\"footer\"]/div[1]/div[1]/a[1]/svg[1]",
+    "position": {
+      "x": 8,
+      "y": 3722,
+      "width": 91,
+      "height": 32
+    },
+    "styles": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 238)",
+      "fontSize": "16px",
+      "display": "inline",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  }
+]
