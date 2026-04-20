@@ -143,7 +143,15 @@ function showPreview(playlist) {
     document.getElementById('preview-img').src = playlist.images[0]?.url || '';
     document.getElementById('preview-name').innerText = playlist.name;
     document.getElementById('preview-owner').querySelector('span').innerText = playlist.owner.display_name;
-    document.getElementById('preview-tracks').querySelector('span').innerText = playlist.tracks?.total || 0;
+    
+    if (playlist.tracks && playlist.tracks.total !== undefined) {
+        document.getElementById('preview-tracks').querySelector('span').innerText = playlist.tracks.total;
+    } else if (playlist.error) {
+        document.getElementById('preview-tracks').querySelector('span').innerText = 'Erro: ' + playlist.error;
+    } else {
+        document.getElementById('preview-tracks').querySelector('span').innerText = 'Dados não disponíveis (erro Spotify API)';
+    }
+    
     document.getElementById('clone-name').value = `Cópia de ${playlist.name}`;
 }
 
