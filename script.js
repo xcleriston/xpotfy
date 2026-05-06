@@ -89,15 +89,17 @@ searchBtn.addEventListener('click', async () => {
             const id = playlistIdMatch[1];
             const res = await fetch(`/api/search?id=${id}&token=${accessToken}`);
             const playlist = await res.json();
+            if (!res.ok) throw new Error(playlist.error || 'Erro na API');
             showPreview(playlist);
         } else {
             const res = await fetch(`/api/search?q=${encodeURIComponent(query)}&token=${accessToken}`);
             const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Erro na API');
             showResults(data.playlists.items);
         }
     } catch (err) {
         console.error('Search error:', err);
-        resultsGrid.innerHTML = '<p class="error">Falha ao buscar. Verifique o link ou tente novamente.</p>';
+        resultsGrid.innerHTML = `<p class="error">Falha ao buscar: ${err.message}</p>`;
     }
 });
 
@@ -111,10 +113,13 @@ composerSearchBtn.addEventListener('click', async () => {
     try {
         const res = await fetch(`/api/composer?q=${encodeURIComponent(query)}&token=${accessToken}`);
         const data = await res.json();
+        if (!res.ok) {
+            throw new Error(data.error || 'Erro na API');
+        }
         showComposerResults(data.tracks);
     } catch (err) {
         console.error('Composer search error:', err);
-        resultsGrid.innerHTML = '<p class="error">Falha ao buscar músicas do compositor. Tente novamente.</p>';
+        resultsGrid.innerHTML = `<p class="error">Erro ao buscar: ${err.message}</p>`;
     }
 });
 
