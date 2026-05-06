@@ -95,7 +95,6 @@ searchBtn.addEventListener('click', async () => {
             const data = await res.json();
             showResults(data.playlists.items);
         }
-        resultsGrid.innerHTML = '';
     } catch (err) {
         console.error('Search error:', err);
         resultsGrid.innerHTML = '<p class="error">Falha ao buscar. Verifique o link ou tente novamente.</p>';
@@ -113,7 +112,6 @@ composerSearchBtn.addEventListener('click', async () => {
         const res = await fetch(`/api/composer?q=${encodeURIComponent(query)}&token=${accessToken}`);
         const data = await res.json();
         showComposerResults(data.tracks);
-        resultsGrid.innerHTML = '';
     } catch (err) {
         console.error('Composer search error:', err);
         resultsGrid.innerHTML = '<p class="error">Falha ao buscar músicas do compositor. Tente novamente.</p>';
