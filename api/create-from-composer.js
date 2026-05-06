@@ -25,18 +25,28 @@ export default async function handler(req, res) {
     const userId = user.id;
 
     // 2. Search for tracks by artist/composer
-    const searchRes = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=50`, {
-      headers: { 'Authorization': `Bearer ${token}` }
-    });
-    
-    if (!searchRes.ok) {
-      const errorData = await searchRes.json();
-      console.error('Error searching tracks:', errorData);
-      return res.status(searchRes.status).json({ error: `Erro ao buscar músicas: ${errorData.error?.message || searchRes.statusText}` });
+    // Fetch em lotes de 10 devido a restrições da API do Spotify
+    let tracks = [];
+    for (let offset = 0; offset < 50; offset += 10) {
+      const searchRes = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=10&offset=${offset}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      
+      if (!searchRes.ok) {
+        const errorData = await searchRes.json();
+        if (offset === 0) {
+          console.error('Error searching tracks:', errorData);
+          return res.status(searchRes.status).json({ error: `Erro ao buscar músicas: ${errorData.error?.message || searchRes.statusText}` });
+        }
+        break; // Ignora se lotes subsequentes falharem
+      }
+      
+      const searchData = await searchRes.json();
+      const newTracks = searchData.tracks?.items?.map(item => item.uri) || [];
+      tracks.push(...newTracks);
+      
+      if (!searchData.tracks?.next) break; // Para se não houver mais páginas
     }
-    
-    const searchData = await searchRes.json();
-    const tracks = searchData.tracks?.items?.map(item => item.uri) || [];
     
     if (tracks.length === 0) {
       return res.status(400).json({ error: 'Nenhuma música encontrada' });
