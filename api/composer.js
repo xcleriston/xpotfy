@@ -11,9 +11,9 @@ export default async function handler(req, res) {
 
   try {
     // Search for tracks by artist (composer/co-composer)
-    // Limite alterado para 10 devido a restrição da API. Usando loop para buscar 50.
+    // Limite alterado para 10 devido a restrição da API. Usando loop para buscar até 300.
     let tracks = [];
-    for (let offset = 0; offset < 50; offset += 10) {
+    for (let offset = 0; offset < 300; offset += 10) {
       const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(q)}&type=track&limit=10&offset=${offset}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
