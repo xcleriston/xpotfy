@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
     // 2. Get tracks from source playlist (handle pagination)
     let tracks = [];
-    let nextUrl = `https://api.spotify.com/v1/playlists/${sourceId}/tracks?limit=100`;
+    let nextUrl = `https://api.spotify.com/v1/playlists/${sourceId}/items?limit=100`;
 
     while (nextUrl) {
       const tracksRes = await fetch(nextUrl, {
