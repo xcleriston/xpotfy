@@ -26,17 +26,39 @@ export default async function handler(req, res) {
 
     // 2. Get tracks from source playlist (handle pagination)
     let tracks = [];
-    let nextUrl = `https://api.spotify.com/v1/playlists/${sourceId}/items?limit=100`;
+    
+    // Buscamos a playlist completa primeiro. Isso evita o 403 direto no endpoint /items e já traz até 100 músicas.
+    const playlistRes = await fetch(`https://api.spotify.com/v1/playlists/${sourceId}?market=from_token&additional_types=track`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    
+    if (!playlistRes.ok) {
+      const errorData = await playlistRes.json();
+      console.error('Error fetching playlist for clone:', errorData);
+      return res.status(playlistRes.status).json({ error: `Erro ao obter playlist original: ${errorData.error?.message || playlistRes.statusText}` });
+    }
+    
+    const playlistData = await playlistRes.json();
+    if (playlistData.tracks && playlistData.tracks.items) {
+      tracks.push(...playlistData.tracks.items.filter(item => item.track).map(item => item.track.uri));
+    }
+    
+    let nextUrl = playlistData.tracks?.next;
 
     while (nextUrl) {
-      const tracksRes = await fetch(nextUrl, {
+      // Adiciona parâmetros para evitar erro 403 de restrição de mercado na paginação
+      const fetchUrl = nextUrl.includes('?') ? `${nextUrl}&market=from_token&additional_types=track` : `${nextUrl}?market=from_token&additional_types=track`;
+      
+      const tracksRes = await fetch(fetchUrl, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
       if (!tracksRes.ok) {
         const errorData = await tracksRes.json();
-        console.error('Error fetching tracks:', errorData);
-        return res.status(tracksRes.status).json({ error: `Erro ao obter músicas: ${errorData.error?.message || tracksRes.statusText}` });
+        console.error('Error fetching tracks pagination:', errorData);
+        // Se a paginação falhar com 403, quebra o loop e clona o que já conseguiu (as primeiras 100)
+        if (tracksRes.status === 403) break;
+        return res.status(tracksRes.status).json({ error: `Erro ao obter músicas (página 2+): ${errorData.error?.message || tracksRes.statusText}` });
       }
       
       const data = await tracksRes.json();
